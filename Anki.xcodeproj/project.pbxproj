@@ -1,0 +1,507 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		68BB55AB1C73CD5E0056C29C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68BB55AA1C73CD5E0056C29C /* AppDelegate.swift */; };
+		68BB55AD1C73CD5E0056C29C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68BB55AC1C73CD5E0056C29C /* ViewController.swift */; };
+		68BB55B01C73CD5E0056C29C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68BB55AE1C73CD5E0056C29C /* Main.storyboard */; };
+		68BB55B21C73CD5E0056C29C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68BB55B11C73CD5E0056C29C /* Assets.xcassets */; };
+		68BB55B51C73CD5E0056C29C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68BB55B31C73CD5E0056C29C /* LaunchScreen.storyboard */; };
+		68BB55C01C73CD5E0056C29C /* AnkiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68BB55BF1C73CD5E0056C29C /* AnkiTests.swift */; };
+		68BB55CB1C73CD5E0056C29C /* AnkiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68BB55CA1C73CD5E0056C29C /* AnkiUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		68BB55BC1C73CD5E0056C29C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 68BB559F1C73CD5E0056C29C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 68BB55A61C73CD5E0056C29C;
+			remoteInfo = Anki;
+		};
+		68BB55C71C73CD5E0056C29C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 68BB559F1C73CD5E0056C29C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 68BB55A61C73CD5E0056C29C;
+			remoteInfo = Anki;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		68BB55A71C73CD5E0056C29C /* Anki.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Anki.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		68BB55AA1C73CD5E0056C29C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		68BB55AC1C73CD5E0056C29C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		68BB55AF1C73CD5E0056C29C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		68BB55B11C73CD5E0056C29C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		68BB55B41C73CD5E0056C29C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		68BB55B61C73CD5E0056C29C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		68BB55BB1C73CD5E0056C29C /* AnkiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AnkiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		68BB55BF1C73CD5E0056C29C /* AnkiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnkiTests.swift; sourceTree = "<group>"; };
+		68BB55C11C73CD5E0056C29C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		68BB55C61C73CD5E0056C29C /* AnkiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AnkiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		68BB55CA1C73CD5E0056C29C /* AnkiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnkiUITests.swift; sourceTree = "<group>"; };
+		68BB55CC1C73CD5E0056C29C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		68BB55A41C73CD5E0056C29C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		68BB55B81C73CD5E0056C29C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		68BB55C31C73CD5E0056C29C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		68BB559E1C73CD5E0056C29C = {
+			isa = PBXGroup;
+			children = (
+				68BB55A91C73CD5E0056C29C /* Anki */,
+				68BB55BE1C73CD5E0056C29C /* AnkiTests */,
+				68BB55C91C73CD5E0056C29C /* AnkiUITests */,
+				68BB55A81C73CD5E0056C29C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		68BB55A81C73CD5E0056C29C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				68BB55A71C73CD5E0056C29C /* Anki.app */,
+				68BB55BB1C73CD5E0056C29C /* AnkiTests.xctest */,
+				68BB55C61C73CD5E0056C29C /* AnkiUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		68BB55A91C73CD5E0056C29C /* Anki */ = {
+			isa = PBXGroup;
+			children = (
+				68BB55AA1C73CD5E0056C29C /* AppDelegate.swift */,
+				68BB55AC1C73CD5E0056C29C /* ViewController.swift */,
+				68BB55AE1C73CD5E0056C29C /* Main.storyboard */,
+				68BB55B11C73CD5E0056C29C /* Assets.xcassets */,
+				68BB55B31C73CD5E0056C29C /* LaunchScreen.storyboard */,
+				68BB55B61C73CD5E0056C29C /* Info.plist */,
+			);
+			path = Anki;
+			sourceTree = "<group>";
+		};
+		68BB55BE1C73CD5E0056C29C /* AnkiTests */ = {
+			isa = PBXGroup;
+			children = (
+				68BB55BF1C73CD5E0056C29C /* AnkiTests.swift */,
+				68BB55C11C73CD5E0056C29C /* Info.plist */,
+			);
+			path = AnkiTests;
+			sourceTree = "<group>";
+		};
+		68BB55C91C73CD5E0056C29C /* AnkiUITests */ = {
+			isa = PBXGroup;
+			children = (
+				68BB55CA1C73CD5E0056C29C /* AnkiUITests.swift */,
+				68BB55CC1C73CD5E0056C29C /* Info.plist */,
+			);
+			path = AnkiUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		68BB55A61C73CD5E0056C29C /* Anki */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 68BB55CF1C73CD5E0056C29C /* Build configuration list for PBXNativeTarget "Anki" */;
+			buildPhases = (
+				68BB55A31C73CD5E0056C29C /* Sources */,
+				68BB55A41C73CD5E0056C29C /* Frameworks */,
+				68BB55A51C73CD5E0056C29C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Anki;
+			productName = Anki;
+			productReference = 68BB55A71C73CD5E0056C29C /* Anki.app */;
+			productType = "com.apple.product-type.application";
+		};
+		68BB55BA1C73CD5E0056C29C /* AnkiTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 68BB55D21C73CD5E0056C29C /* Build configuration list for PBXNativeTarget "AnkiTests" */;
+			buildPhases = (
+				68BB55B71C73CD5E0056C29C /* Sources */,
+				68BB55B81C73CD5E0056C29C /* Frameworks */,
+				68BB55B91C73CD5E0056C29C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				68BB55BD1C73CD5E0056C29C /* PBXTargetDependency */,
+			);
+			name = AnkiTests;
+			productName = AnkiTests;
+			productReference = 68BB55BB1C73CD5E0056C29C /* AnkiTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		68BB55C51C73CD5E0056C29C /* AnkiUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 68BB55D51C73CD5E0056C29C /* Build configuration list for PBXNativeTarget "AnkiUITests" */;
+			buildPhases = (
+				68BB55C21C73CD5E0056C29C /* Sources */,
+				68BB55C31C73CD5E0056C29C /* Frameworks */,
+				68BB55C41C73CD5E0056C29C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				68BB55C81C73CD5E0056C29C /* PBXTargetDependency */,
+			);
+			name = AnkiUITests;
+			productName = AnkiUITests;
+			productReference = 68BB55C61C73CD5E0056C29C /* AnkiUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		68BB559F1C73CD5E0056C29C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = TeamKickAss;
+				TargetAttributes = {
+					68BB55A61C73CD5E0056C29C = {
+						CreatedOnToolsVersion = 7.2.1;
+					};
+					68BB55BA1C73CD5E0056C29C = {
+						CreatedOnToolsVersion = 7.2.1;
+						TestTargetID = 68BB55A61C73CD5E0056C29C;
+					};
+					68BB55C51C73CD5E0056C29C = {
+						CreatedOnToolsVersion = 7.2.1;
+						TestTargetID = 68BB55A61C73CD5E0056C29C;
+					};
+				};
+			};
+			buildConfigurationList = 68BB55A21C73CD5E0056C29C /* Build configuration list for PBXProject "Anki" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 68BB559E1C73CD5E0056C29C;
+			productRefGroup = 68BB55A81C73CD5E0056C29C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				68BB55A61C73CD5E0056C29C /* Anki */,
+				68BB55BA1C73CD5E0056C29C /* AnkiTests */,
+				68BB55C51C73CD5E0056C29C /* AnkiUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		68BB55A51C73CD5E0056C29C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				68BB55B51C73CD5E0056C29C /* LaunchScreen.storyboard in Resources */,
+				68BB55B21C73CD5E0056C29C /* Assets.xcassets in Resources */,
+				68BB55B01C73CD5E0056C29C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		68BB55B91C73CD5E0056C29C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		68BB55C41C73CD5E0056C29C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		68BB55A31C73CD5E0056C29C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				68BB55AD1C73CD5E0056C29C /* ViewController.swift in Sources */,
+				68BB55AB1C73CD5E0056C29C /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		68BB55B71C73CD5E0056C29C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				68BB55C01C73CD5E0056C29C /* AnkiTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		68BB55C21C73CD5E0056C29C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				68BB55CB1C73CD5E0056C29C /* AnkiUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		68BB55BD1C73CD5E0056C29C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 68BB55A61C73CD5E0056C29C /* Anki */;
+			targetProxy = 68BB55BC1C73CD5E0056C29C /* PBXContainerItemProxy */;
+		};
+		68BB55C81C73CD5E0056C29C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 68BB55A61C73CD5E0056C29C /* Anki */;
+			targetProxy = 68BB55C71C73CD5E0056C29C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		68BB55AE1C73CD5E0056C29C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				68BB55AF1C73CD5E0056C29C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		68BB55B31C73CD5E0056C29C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				68BB55B41C73CD5E0056C29C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		68BB55CD1C73CD5E0056C29C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		68BB55CE1C73CD5E0056C29C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		68BB55D01C73CD5E0056C29C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Anki/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = TeamKickAss.Anki;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		68BB55D11C73CD5E0056C29C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Anki/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = TeamKickAss.Anki;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		68BB55D31C73CD5E0056C29C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = AnkiTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = TeamKickAss.AnkiTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Anki.app/Anki";
+			};
+			name = Debug;
+		};
+		68BB55D41C73CD5E0056C29C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = AnkiTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = TeamKickAss.AnkiTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Anki.app/Anki";
+			};
+			name = Release;
+		};
+		68BB55D61C73CD5E0056C29C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = AnkiUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = TeamKickAss.AnkiUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Anki;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		68BB55D71C73CD5E0056C29C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = AnkiUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = TeamKickAss.AnkiUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Anki;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		68BB55A21C73CD5E0056C29C /* Build configuration list for PBXProject "Anki" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				68BB55CD1C73CD5E0056C29C /* Debug */,
+				68BB55CE1C73CD5E0056C29C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		68BB55CF1C73CD5E0056C29C /* Build configuration list for PBXNativeTarget "Anki" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				68BB55D01C73CD5E0056C29C /* Debug */,
+				68BB55D11C73CD5E0056C29C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		68BB55D21C73CD5E0056C29C /* Build configuration list for PBXNativeTarget "AnkiTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				68BB55D31C73CD5E0056C29C /* Debug */,
+				68BB55D41C73CD5E0056C29C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		68BB55D51C73CD5E0056C29C /* Build configuration list for PBXNativeTarget "AnkiUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				68BB55D61C73CD5E0056C29C /* Debug */,
+				68BB55D71C73CD5E0056C29C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 68BB559F1C73CD5E0056C29C /* Project object */;
+}
