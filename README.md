@@ -14,6 +14,7 @@ The following **optional** features are implemented:
 
 - [ ] User can send a download link to friends in messenger.
 - [ ] User can create cards and add images to those cards. 
+- [ ] Add ads
 
 ## License
 
