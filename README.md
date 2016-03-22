@@ -76,7 +76,8 @@ Medical students make thousands of flashcards that they need to study and share 
 We want to make an app that can store all these cards in the cloud, and let them download the app at will.
 The should also be able to modify any card and have a conversation about a card's content. 
 
-It has the following core flows. 
+It has the following core flows.
+
 1. User Can login/signup
 2. User Can see all decks they own, and search for publically available decks.
 3. User Can download decks for offline use
