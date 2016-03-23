@@ -20,12 +20,20 @@ PODS:
   - MBProgressHUD (0.9.2)
   - Parse (1.13.0):
     - Bolts/Tasks (~> 1.6)
+<<<<<<< HEAD
+=======
+  - RATreeView (2.1.0)
+>>>>>>> bd7123e1268fd94e6a3c9615c4bd552585700d74
 
 DEPENDENCIES:
   - AFNetworking
   - BDBOAuth1Manager
   - MBProgressHUD
   - Parse
+<<<<<<< HEAD
+=======
+  - RATreeView
+>>>>>>> bd7123e1268fd94e6a3c9615c4bd552585700d74
 
 SPEC CHECKSUMS:
   AFNetworking: a0075feb321559dc78d9d85b55d11caa19eabb93
@@ -33,5 +41,9 @@ SPEC CHECKSUMS:
   Bolts: f52a250053bb517ca874523c3913776359ab3def
   MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
   Parse: f51c24d2feb412e4b2d6cc73d37cb24e8d0089bc
+<<<<<<< HEAD
+=======
+  RATreeView: fc82ec26b8be18cfa0f5f99a5abbe6be68edb21f
+>>>>>>> bd7123e1268fd94e6a3c9615c4bd552585700d74
 
 COCOAPODS: 0.39.0

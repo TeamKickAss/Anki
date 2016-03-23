@@ -89,6 +89,10 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods/Bolts.framework"
   install_framework "Pods/MBProgressHUD.framework"
   install_framework "Pods/Parse.framework"
+<<<<<<< HEAD
+=======
+  install_framework "Pods/RATreeView.framework"
+>>>>>>> bd7123e1268fd94e6a3c9615c4bd552585700d74
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods/AFNetworking.framework"
@@ -96,4 +100,8 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods/Bolts.framework"
   install_framework "Pods/MBProgressHUD.framework"
   install_framework "Pods/Parse.framework"
+<<<<<<< HEAD
+=======
+  install_framework "Pods/RATreeView.framework"
+>>>>>>> bd7123e1268fd94e6a3c9615c4bd552585700d74
 fi
