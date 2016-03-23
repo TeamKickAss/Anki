@@ -9,14 +9,13 @@
 /* Begin PBXBuildFile section */
 		19A162AC555C9B510181608E /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63D47DE0E269319ECD8DB208 /* Pods.framework */; };
 		68946E621CA20E420036392C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68946E611CA20E420036392C /* User.swift */; };
-		68946E641CA20E9E0036392C /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68946E631CA20E9E0036392C /* Deck.swift */; };
 		68946E661CA20EC50036392C /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68946E651CA20EC50036392C /* Card.swift */; };
-		68946E681CA20ECF0036392C /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68946E671CA20ECF0036392C /* Transaction.swift */; };
 		68946E6E1CA212100036392C /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68946E691CA212100036392C /* AFNetworking.framework */; };
 		68946E6F1CA212100036392C /* BDBOAuth1Manager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68946E6A1CA212100036392C /* BDBOAuth1Manager.framework */; };
 		68946E701CA212100036392C /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68946E6B1CA212100036392C /* Bolts.framework */; };
 		68946E711CA212100036392C /* MBProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68946E6C1CA212100036392C /* MBProgressHUD.framework */; };
 		68946E721CA212100036392C /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68946E6D1CA212100036392C /* Parse.framework */; };
+		68AC3ADA1CA22957008A9357 /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68AC3AD91CA22957008A9357 /* Deck.swift */; };
 		68BB55AB1C73CD5E0056C29C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68BB55AA1C73CD5E0056C29C /* AppDelegate.swift */; };
 		68BB55AD1C73CD5E0056C29C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68BB55AC1C73CD5E0056C29C /* ViewController.swift */; };
 		68BB55B01C73CD5E0056C29C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68BB55AE1C73CD5E0056C29C /* Main.storyboard */; };
@@ -48,14 +47,13 @@
 		49596EC8C84CF411979E6BB7 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		63D47DE0E269319ECD8DB208 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		68946E611CA20E420036392C /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		68946E631CA20E9E0036392C /* Deck.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
 		68946E651CA20EC50036392C /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
-		68946E671CA20ECF0036392C /* Transaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		68946E691CA212100036392C /* AFNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AFNetworking.framework; path = "Pods/../build/Debug-iphoneos/AFNetworking.framework"; sourceTree = "<group>"; };
 		68946E6A1CA212100036392C /* BDBOAuth1Manager.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BDBOAuth1Manager.framework; path = "Pods/../build/Debug-iphoneos/BDBOAuth1Manager.framework"; sourceTree = "<group>"; };
 		68946E6B1CA212100036392C /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = "Pods/../build/Debug-iphoneos/Bolts.framework"; sourceTree = "<group>"; };
 		68946E6C1CA212100036392C /* MBProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MBProgressHUD.framework; path = "Pods/../build/Debug-iphoneos/MBProgressHUD.framework"; sourceTree = "<group>"; };
 		68946E6D1CA212100036392C /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = "Pods/../build/Debug-iphoneos/Parse.framework"; sourceTree = "<group>"; };
+		68AC3AD91CA22957008A9357 /* Deck.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
 		68BB55A71C73CD5E0056C29C /* Anki.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Anki.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		68BB55AA1C73CD5E0056C29C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		68BB55AC1C73CD5E0056C29C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -169,9 +167,8 @@
 			isa = PBXGroup;
 			children = (
 				68946E611CA20E420036392C /* User.swift */,
-				68946E631CA20E9E0036392C /* Deck.swift */,
 				68946E651CA20EC50036392C /* Card.swift */,
-				68946E671CA20ECF0036392C /* Transaction.swift */,
+				68AC3AD91CA22957008A9357 /* Deck.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -371,10 +368,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				68946E641CA20E9E0036392C /* Deck.swift in Sources */,
 				68BB55AD1C73CD5E0056C29C /* ViewController.swift in Sources */,
-				68946E681CA20ECF0036392C /* Transaction.swift in Sources */,
 				68946E661CA20EC50036392C /* Card.swift in Sources */,
+				68AC3ADA1CA22957008A9357 /* Deck.swift in Sources */,
 				68BB55AB1C73CD5E0056C29C /* AppDelegate.swift in Sources */,
 				68946E621CA20E420036392C /* User.swift in Sources */,
 			);
@@ -522,6 +518,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/**",
 				);
 				INFOPLIST_FILE = Anki/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -538,6 +535,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/**",
 				);
 				INFOPLIST_FILE = Anki/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

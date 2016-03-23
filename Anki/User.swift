@@ -7,13 +7,15 @@
 //
 
 import UIKit
+import Parse
 
-var _currentUser: User?
 let userDidLoginNotification = "userDidLoginNotification"
 let userDidLogoutNotification = "userDidLogoutNotification"
 class User: NSObject {
-    var id: Int?
-    var name: String?
-    var profileImageURL: String?
-    
+    static let myDecks = [PFObject]()
+    class func updateMyDecks(withCompletion completion: PFBooleanResultBlock){
+        let user = PFUser.currentUser()
+        let decks = user?.objectForKey("decks")
+        Deck.getDecks(decks)
+    }
 }
