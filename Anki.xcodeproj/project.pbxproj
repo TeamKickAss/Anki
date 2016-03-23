@@ -16,6 +16,7 @@
 		68946E711CA212100036392C /* MBProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68946E6C1CA212100036392C /* MBProgressHUD.framework */; };
 		68946E721CA212100036392C /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68946E6D1CA212100036392C /* Parse.framework */; };
 		68AC3ADA1CA22957008A9357 /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68AC3AD91CA22957008A9357 /* Deck.swift */; };
+		68AC3ADC1CA23204008A9357 /* Scheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68AC3ADB1CA23204008A9357 /* Scheduler.swift */; };
 		68BB55AB1C73CD5E0056C29C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68BB55AA1C73CD5E0056C29C /* AppDelegate.swift */; };
 		68BB55AD1C73CD5E0056C29C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68BB55AC1C73CD5E0056C29C /* ViewController.swift */; };
 		68BB55B01C73CD5E0056C29C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68BB55AE1C73CD5E0056C29C /* Main.storyboard */; };
@@ -54,6 +55,7 @@
 		68946E6C1CA212100036392C /* MBProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MBProgressHUD.framework; path = "Pods/../build/Debug-iphoneos/MBProgressHUD.framework"; sourceTree = "<group>"; };
 		68946E6D1CA212100036392C /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = "Pods/../build/Debug-iphoneos/Parse.framework"; sourceTree = "<group>"; };
 		68AC3AD91CA22957008A9357 /* Deck.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
+		68AC3ADB1CA23204008A9357 /* Scheduler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scheduler.swift; sourceTree = "<group>"; };
 		68BB55A71C73CD5E0056C29C /* Anki.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Anki.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		68BB55AA1C73CD5E0056C29C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		68BB55AC1C73CD5E0056C29C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 				68946E611CA20E420036392C /* User.swift */,
 				68946E651CA20EC50036392C /* Card.swift */,
 				68AC3AD91CA22957008A9357 /* Deck.swift */,
+				68AC3ADB1CA23204008A9357 /* Scheduler.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -371,6 +374,7 @@
 				68BB55AD1C73CD5E0056C29C /* ViewController.swift in Sources */,
 				68946E661CA20EC50036392C /* Card.swift in Sources */,
 				68AC3ADA1CA22957008A9357 /* Deck.swift in Sources */,
+				68AC3ADC1CA23204008A9357 /* Scheduler.swift in Sources */,
 				68BB55AB1C73CD5E0056C29C /* AppDelegate.swift in Sources */,
 				68946E621CA20E420036392C /* User.swift in Sources */,
 			);
