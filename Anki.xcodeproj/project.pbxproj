@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		19A162AC555C9B510181608E /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63D47DE0E269319ECD8DB208 /* Pods.framework */; };
+		684E02B01CA22F8400011A3B /* UserDecksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684E02AF1CA22F8400011A3B /* UserDecksViewController.swift */; };
+		684E02B21CA22F9200011A3B /* BrowseDecksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684E02B11CA22F9200011A3B /* BrowseDecksViewController.swift */; };
+		684E02B41CA22FA300011A3B /* CardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684E02B31CA22FA300011A3B /* CardsViewController.swift */; };
+		684E02B61CA22FEC00011A3B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684E02B51CA22FEC00011A3B /* LoginViewController.swift */; };
+		684E02B81CA2307200011A3B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684E02B71CA2307200011A3B /* ProfileViewController.swift */; };
+		684E02BB1CA2323800011A3B /* UserDeckCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684E02BA1CA2323800011A3B /* UserDeckCell.swift */; };
+		684E02BD1CA2324600011A3B /* BrowseDeckCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684E02BC1CA2324600011A3B /* BrowseDeckCell.swift */; };
+		684E02BF1CA2325B00011A3B /* ProfileDeckCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684E02BE1CA2325B00011A3B /* ProfileDeckCell.swift */; };
 		68946E621CA20E420036392C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68946E611CA20E420036392C /* User.swift */; };
 		68946E661CA20EC50036392C /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68946E651CA20EC50036392C /* Card.swift */; };
 		68946E6E1CA212100036392C /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68946E691CA212100036392C /* AFNetworking.framework */; };
@@ -47,6 +55,14 @@
 		49406CD27E136CB520555374 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		49596EC8C84CF411979E6BB7 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		63D47DE0E269319ECD8DB208 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		684E02AF1CA22F8400011A3B /* UserDecksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDecksViewController.swift; sourceTree = "<group>"; };
+		684E02B11CA22F9200011A3B /* BrowseDecksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowseDecksViewController.swift; sourceTree = "<group>"; };
+		684E02B31CA22FA300011A3B /* CardsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardsViewController.swift; sourceTree = "<group>"; };
+		684E02B51CA22FEC00011A3B /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		684E02B71CA2307200011A3B /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		684E02BA1CA2323800011A3B /* UserDeckCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDeckCell.swift; sourceTree = "<group>"; };
+		684E02BC1CA2324600011A3B /* BrowseDeckCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowseDeckCell.swift; sourceTree = "<group>"; };
+		684E02BE1CA2325B00011A3B /* ProfileDeckCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileDeckCell.swift; sourceTree = "<group>"; };
 		68946E611CA20E420036392C /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		68946E651CA20EC50036392C /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		68946E691CA212100036392C /* AFNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AFNetworking.framework; path = "Pods/../build/Debug-iphoneos/AFNetworking.framework"; sourceTree = "<group>"; };
@@ -111,6 +127,28 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		684E02AE1CA22F5F00011A3B /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				684E02AF1CA22F8400011A3B /* UserDecksViewController.swift */,
+				684E02B11CA22F9200011A3B /* BrowseDecksViewController.swift */,
+				684E02B31CA22FA300011A3B /* CardsViewController.swift */,
+				684E02B51CA22FEC00011A3B /* LoginViewController.swift */,
+				684E02B71CA2307200011A3B /* ProfileViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		684E02B91CA231D400011A3B /* TableCells */ = {
+			isa = PBXGroup;
+			children = (
+				684E02BA1CA2323800011A3B /* UserDeckCell.swift */,
+				684E02BC1CA2324600011A3B /* BrowseDeckCell.swift */,
+				684E02BE1CA2325B00011A3B /* ProfileDeckCell.swift */,
+			);
+			name = TableCells;
+			sourceTree = "<group>";
+		};
 		68BB559E1C73CD5E0056C29C = {
 			isa = PBXGroup;
 			children = (
@@ -136,6 +174,8 @@
 		68BB55A91C73CD5E0056C29C /* Anki */ = {
 			isa = PBXGroup;
 			children = (
+				684E02B91CA231D400011A3B /* TableCells */,
+				684E02AE1CA22F5F00011A3B /* ViewControllers */,
 				68F2FC851CA20C6500A615BE /* Models */,
 				68BB55AA1C73CD5E0056C29C /* AppDelegate.swift */,
 				68BB55AC1C73CD5E0056C29C /* ViewController.swift */,
@@ -371,11 +411,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				684E02BD1CA2324600011A3B /* BrowseDeckCell.swift in Sources */,
+				684E02B61CA22FEC00011A3B /* LoginViewController.swift in Sources */,
+				684E02B41CA22FA300011A3B /* CardsViewController.swift in Sources */,
+				684E02B81CA2307200011A3B /* ProfileViewController.swift in Sources */,
+				684E02B21CA22F9200011A3B /* BrowseDecksViewController.swift in Sources */,
+				684E02B01CA22F8400011A3B /* UserDecksViewController.swift in Sources */,
 				68BB55AD1C73CD5E0056C29C /* ViewController.swift in Sources */,
+				684E02BB1CA2323800011A3B /* UserDeckCell.swift in Sources */,
 				68946E661CA20EC50036392C /* Card.swift in Sources */,
 				68AC3ADA1CA22957008A9357 /* Deck.swift in Sources */,
 				68AC3ADC1CA23204008A9357 /* Scheduler.swift in Sources */,
 				68BB55AB1C73CD5E0056C29C /* AppDelegate.swift in Sources */,
+				684E02BF1CA2325B00011A3B /* ProfileDeckCell.swift in Sources */,
 				68946E621CA20E420036392C /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -525,9 +573,11 @@
 					"$(PROJECT_DIR)/**",
 				);
 				INFOPLIST_FILE = Anki/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = TeamKickAss.Anki;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -542,9 +592,11 @@
 					"$(PROJECT_DIR)/**",
 				);
 				INFOPLIST_FILE = Anki/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = TeamKickAss.Anki;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
