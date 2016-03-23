@@ -27,6 +27,7 @@ class User: NSObject {
                     myDecksGids.append(d.objectForKey("gid") as! String)
                 }
                 myDecks = decks
+                completion(true, error)
             }
         }
     }
