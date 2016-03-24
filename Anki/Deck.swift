@@ -81,4 +81,13 @@ class Deck: NSObject {
             
         }
     }
+    
+    class func getChildrenDecksForDeck(deck: PFObject, withCompletion completion:PFQueryArrayResultBlock){
+        var gids = deck.objectForKey("children") as? [String]
+        if let gids = gids{
+            getDecks(gids, withCompletion: completion)
+        }else{
+            completion([], nil)
+        }
+    }
 }
