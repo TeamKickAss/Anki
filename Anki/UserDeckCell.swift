@@ -2,7 +2,7 @@
 //  UserDeckCell.swift
 //  Anki
 //
-//  Created by Labuser on 3/22/16.
+//  Created by Labuser on 3/24/16.
 //  Copyright © 2016 TeamKickAss. All rights reserved.
 //
 
@@ -22,5 +22,5 @@ class UserDeckCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    
 }
