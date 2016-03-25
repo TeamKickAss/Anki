@@ -13,7 +13,7 @@ class UserDecksViewController: UIViewController, RATreeViewDataSource, RATreeVie
 
     @IBOutlet weak var deckTree: RATreeView!
     private var treeView: RATreeView!
-    private let xibName = "TestViewCell"
+    private let xibName = "UserDeckCell"
     var data : [DeckNode] = []
 
     override func viewDidLoad() {
@@ -49,9 +49,11 @@ class UserDecksViewController: UIViewController, RATreeViewDataSource, RATreeVie
     }
     
     func treeView(treeView: RATreeView, cellForItem item: AnyObject?) -> UITableViewCell {
-        let cell = treeView.dequeueReusableCellWithIdentifier(xibName) as! TestViewCell
+        let cell = treeView.dequeueReusableCellWithIdentifier(xibName) as! UserDeckCell
         let item = item as! DeckNode
-        cell.deckName.text = item.name
+        let level = treeView.levelForCellForItem(item)
+        let spaces = String(count: (2 * level), repeatedValue: (" " as! Character))
+        cell.deckName.text = spaces + item.name
         return cell
     }
     
