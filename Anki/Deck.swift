@@ -8,12 +8,74 @@
 
 import UIKit
 import Parse
-class Deck: NSObject {
+
+class Deck: NSObject{
+    var parseDeck: PFObject
+    var gid: String{
+        set(value){
+            parseDeck.setObject(value, forKey: "gid")
+        }
+        get{
+            return parseDeck.objectForKey("gid") as! String
+        }
+    }
+    
+    var did: String{
+        set(value){
+            parseDeck.setObject(value, forKey: "did")
+        }
+        get{
+            return parseDeck.objectForKey("did") as! String
+        }
+    }
+    
+    var owner: String{
+        set(value){
+            parseDeck.setObject(value, forKey: "owner")
+        }
+        get{
+            return parseDeck.objectForKey("owner") as! String
+        }
+    }
+    
+    var desc: String{
+        set(value){
+            parseDeck.setObject(value, forKey: "description")
+        }
+        get{
+            return parseDeck.objectForKey("description") as! String
+        }
+    }
+    
+    var cids: [String]?{
+        set(value){
+            parseDeck.setObject(value!, forKey: "cids")
+        }
+        get{
+            return parseDeck.objectForKey("cids") as? [String]
+        }
+    }
+    
+    var children: [String]?{
+        set(value){
+            parseDeck.setObject(value!, forKey: "children")
+        }
+        get{
+            return parseDeck.objectForKey("children") as? [String]
+        }
+    }
+    
+    init(deck: PFObject){
+        parseDeck = deck
+    }
+}
+
+class DeckUtil: NSObject {
     
     // getDecks : Tries to get all the decks with a given gid. Check to make sure the size of the array of decks given is the size of the array of gids sent. 
-    class func getDecks(gids: [String], withCompletion completion: PFQueryArrayResultBlock){
+    class func getDecks(gids: [String], withCompletion completion: ( [Deck]?, NSError?) -> Void){
         var callbacks = [PFQueryArrayResultBlock]()
-        var decks = [PFObject]()
+        var decks = [Deck]()
         var numDone = 0
         let numFinished = gids.count
         if (gids.isEmpty){
@@ -31,7 +93,7 @@ class Deck: NSObject {
             let callback = { (results: [PFObject]?, e: NSError?) -> () in
                 if(e != nil){
                     if let deck = results?[0]{
-                        decks.append(deck)
+                        decks.append(Deck(deck: deck))
                     }
                 }
                 finished()
@@ -44,10 +106,10 @@ class Deck: NSObject {
         
     }
     
-    class func getCardsForDeck(deck: PFObject, withCompletion completion: PFQueryArrayResultBlock){
+    class func getCardsForDeck(deck: Deck, withCompletion completion: ( [Card]?, NSError?) -> Void){
         var callbacks = [PFQueryArrayResultBlock]()
-        var cards = [PFObject]()
-        var gids = deck.objectForKey("cids") as? [String]
+        var cards = [Card]()
+        let gids = deck.cids
         if let gids = gids{
             if gids.isEmpty{
                 return completion(cards, nil)
@@ -70,7 +132,7 @@ class Deck: NSObject {
             let callback = { (results: [PFObject]?, e: NSError?) -> () in
                 if(e != nil){
                     if let card = results?[0]{
-                        cards.append(card)
+                        cards.append(Card(card: card))
                     }
                 }
                 finished()
@@ -82,8 +144,8 @@ class Deck: NSObject {
         }
     }
     
-    class func getChildrenDecksForDeck(deck: PFObject, withCompletion completion:PFQueryArrayResultBlock){
-        var gids = deck.objectForKey("children") as? [String]
+    class func getChildrenDecksForDeck(deck: Deck, withCompletion completion:( [Deck]?, NSError?) -> Void){
+        let gids = deck.children
         if let gids = gids{
             getDecks(gids, withCompletion: completion)
         }else{
