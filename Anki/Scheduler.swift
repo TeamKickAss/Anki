@@ -53,15 +53,15 @@ class Scheduler: NSObject {
         }
     }
     var onStatusChange: (status: SchedulerStatus) -> Void
-    init(deck: PFObject, onStatusChange: (status: SchedulerStatus) -> Void){
+    init(deck: Deck, onStatusChange: (status: SchedulerStatus) -> Void){
         self.cardArr = [CardNode]()
         self.onStatusChange = onStatusChange
         super.init()
-        Deck.getCardsForDeck(deck, withCompletion: self.gotNewCards)
+        DeckUtil.getCardsForDeck(deck, withCompletion: self.gotNewCards)
         
     }
     
-    func gotNewCards(cards: [PFObject]?, error: NSError?){
+    func gotNewCards(cards: [Card]?, error: NSError?){
         if let cards = cards{
             if !cards.isEmpty{
                 cardArr = [CardNode]()
@@ -82,7 +82,7 @@ class Scheduler: NSObject {
         status = .Ready
     }
     
-    func getNextCard() -> PFObject?{
+    func getNextCard() -> Card?{
         let card = currentCard?.card
         lastCard = currentCard
         lastCard?.status = .Viewed
@@ -175,13 +175,13 @@ class Scheduler: NSObject {
     
     class CardNode {
         let index: Int
-        let card: PFObject
+        let card: Card
         var difficulty: CardDifficulty
         var prev: CardNode?
         var next: CardNode?
         var status: CardStatus
         var lastViewed: NSDate?
-        init(card: PFObject, index: Int, difficulty: CardDifficulty, prev: CardNode?, next: CardNode?){
+        init(card: Card, index: Int, difficulty: CardDifficulty, prev: CardNode?, next: CardNode?){
             self.card = card
             self.difficulty = difficulty
             self.prev = prev

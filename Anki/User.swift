@@ -12,19 +12,19 @@ import Parse
 let userDidLoginNotification = "userDidLoginNotification"
 let userDidLogoutNotification = "userDidLogoutNotification"
 class User: NSObject {
-    static var myDecks = [PFObject]()
+    static var myDecks = [Deck]()
     static var myDecksGids = [String]()
     class func updateMyDecks(withCompletion completion: PFBooleanResultBlock){
         let user = PFUser.currentUser()
         let gids = user?.objectForKey("decks") as! [String]
-        Deck.getDecks(gids) { (decks: [PFObject]?, error: NSError?) -> Void in
+        DeckUtil.getDecks(gids) { (decks: [Deck]?, error: NSError?) -> Void in
             if let decks = decks{
                 if gids.count != decks.count{
                     print("Error: Failed to get every User Deck")
                 }
                 myDecksGids = [String]()
                 for d in decks{
-                    myDecksGids.append(d.objectForKey("gid") as! String)
+                    myDecksGids.append(d.gid)
                 }
                 myDecks = decks
                 completion(true, error)
