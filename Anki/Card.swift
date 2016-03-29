@@ -9,6 +9,7 @@
 import UIKit
 import Parse
 
+//Immutable.
 class Card: NSObject {
     var parseCard: PFObject
     
@@ -33,6 +34,18 @@ class Card: NSObject {
     var cid: String{
         get{
             return parseCard.objectForKey("cid") as! String
+        }
+    }
+    
+    var front: String{
+        get{
+            return parseCard.objectForKey("front") as! String
+        }
+    }
+    
+    var back: String{
+        get{
+            return parseCard.objectForKey("back") as! String
         }
     }
     

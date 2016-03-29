@@ -68,6 +68,10 @@ class Deck: NSObject{
     init(deck: PFObject){
         parseDeck = deck
     }
+    
+    func save(block: PFBooleanResultBlock?){
+        parseDeck.saveInBackgroundWithBlock(block)
+    }
 }
 
 class DeckUtil: NSObject {
