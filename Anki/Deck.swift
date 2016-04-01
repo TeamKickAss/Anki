@@ -112,6 +112,18 @@ class DeckUtil: NSObject {
             completion(nil, nil)
         }
     }
+    class func getDecksSync(gids: [String])-> [Deck]{
+        let query = PFQuery(className: "Deck")
+        query.whereKey("gid", containedIn: gids)
+        let results = try? query.findObjects()
+        var decks = [Deck]()
+        if let results = results{
+            for d in results{
+                decks.append(Deck(deck: d))
+            }
+        }
+        return decks
+    }
     class func getDecks(var gids: [String], withCompletion completion: ( [Deck]?, NSError?) -> Void){
         var callbacks = [PFQueryArrayResultBlock]()
         var decks = [Deck]()

@@ -53,6 +53,7 @@ class Scheduler: NSObject {
         }
     }
     var onStatusChange: (status: SchedulerStatus) -> Void
+    
     init(deck: Deck, onStatusChange: (status: SchedulerStatus) -> Void){
         self.cardArr = [CardNode]()
         self.onStatusChange = onStatusChange

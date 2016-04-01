@@ -21,11 +21,11 @@ class CardsViewController: UIViewController {
             getScheduler(deck!)
         }
     }
-    var scheduler: Deck?
+    var scheduler: Scheduler?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let htmlString:String! = "<br /><h2>Welcome to SourceFreeze!!!</h2>"
+        let htmlString:String! = "<br /><h2>Loading Your Deck</h2>"
         webView.loadHTMLString(htmlString, baseURL: nil)
         // Do any additional setup after loading the view.
     }
@@ -36,6 +36,10 @@ class CardsViewController: UIViewController {
     }
     
     func getScheduler(deck: Deck){
+        scheduler = Scheduler(deck: deck, onStatusChange: schedulerStatusChange)
+    }
+    
+    func schedulerStatusChange(status: SchedulerStatus){
         
     }
     
