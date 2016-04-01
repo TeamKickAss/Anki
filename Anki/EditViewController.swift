@@ -9,13 +9,16 @@
 import UIKit
 
 class EditViewController: UIViewController {
-//    let currentCard: Card //TODO
-//
-//    @IBOutlet weak var frontText: UITextView!
-//    
-//    @IBOutlet weak var backText: UITextView!
-//    
-//    
+
+
+    //let currentCard: Card //TODO
+
+    @IBOutlet weak var frontText: UITextView!
+    
+    @IBOutlet weak var backText: UITextView!
+    
+    
+
 //    @IBAction func onSubmit(sender: AnyObject) {
 //        if frontText != nil && backText != nil {
 //            currentCard.front = frontText.text;
