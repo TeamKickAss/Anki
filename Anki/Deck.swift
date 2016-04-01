@@ -28,6 +28,14 @@ class Deck: NSObject{
             return parseDeck.objectForKey("did") as! String
         }
     }
+    var name: String{
+        set(value){
+            parseDeck.setObject(value, forKey: "name")
+        }
+        get{
+            return parseDeck.objectForKey("name") as! String
+        }
+    }
     
     var owner: String{
         set(value){
@@ -77,19 +85,32 @@ class Deck: NSObject{
 class DeckUtil: NSObject {
     
     // getDecks : Tries to get all the decks with a given gid. Check to make sure the size of the array of decks given is the size of the array of gids sent. 
-    class func getDecks(gids: [String], withCompletion completion: ( [Deck]?, NSError?) -> Void){
+    class func getAllDecks(limit: Int, withCompletion completion: ([Deck]?, NSError?) -> Void){
+        let query = PFQuery(className: "Deck")
+        query.limit = limit
+        query.findObjectsInBackgroundWithBlock { (objs, error) -> Void in
+            if let objs = objs{
+                var decks = [Deck]()
+                for d in objs{
+                    decks.append(Deck(deck: d))
+                }
+                completion(decks, nil)
+                
+            }
+            completion(nil, nil)
+        }
+    }
+    class func getDecks(var gids: [String], withCompletion completion: ( [Deck]?, NSError?) -> Void){
         var callbacks = [PFQueryArrayResultBlock]()
         var decks = [Deck]()
         var numDone = 0
-        let numFinished = gids.count
         if (gids.isEmpty){
             return completion(decks, nil)
         }
         let finished = {() ->() in
-            if (numDone == numFinished){
+            numDone = numDone + 1
+            if (numDone >= gids.count){
                 completion(decks, nil)
-            }else{
-                numDone = numDone + 1
             }
         }
         for gid in gids {
@@ -97,7 +118,11 @@ class DeckUtil: NSObject {
             let callback = { (results: [PFObject]?, e: NSError?) -> () in
                 if(e != nil){
                     if let deck = results?[0]{
-                        decks.append(Deck(deck: deck))
+                        let d = Deck(deck: deck)
+                        if let cld = d.children{
+                            gids = gids + cld
+                        }
+                        decks.append(d)
                     }
                 }
                 finished()
