@@ -41,11 +41,17 @@ class Card: NSObject {
         get{
             return parseCard.objectForKey("front") as! String
         }
+        set(text){
+            self.front = text;
+        }
     }
     
     var back: String{
         get{
             return parseCard.objectForKey("back") as! String
+        }
+        set(text){
+            self.back = text;
         }
     }
     
