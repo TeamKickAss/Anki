@@ -348,6 +348,12 @@
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6b2-O6-W61">
                                 <rect key="frame" x="20" y="92" width="335" height="434"/>
+                                <subviews>
+                                    <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Hg-qb-SLD">
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="434"/>
+                                        <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                                    </webView>
+                                </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5sd-ne-vBC">
@@ -377,6 +383,13 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="EasyButton" destination="FIH-oV-3xr" id="XYi-gt-9v3"/>
+                        <outlet property="GoodButton" destination="LjB-1G-Jfp" id="tCr-Yk-fKd"/>
+                        <outlet property="againButton" destination="EBr-T6-V5f" id="66Q-di-HkQ"/>
+                        <outlet property="hardButton" destination="5sd-ne-vBC" id="A0v-OQ-gQV"/>
+                        <outlet property="webView" destination="6Hg-qb-SLD" id="iJW-bz-Avx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Flb-2m-PFC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -10,15 +10,33 @@ import UIKit
 
 class CardsViewController: UIViewController {
 
+    @IBOutlet weak var webView: UIWebView!
+    @IBOutlet weak var againButton: UIButton!
+    @IBOutlet weak var hardButton: UIButton!
+    @IBOutlet weak var GoodButton: UIButton!
+    @IBOutlet weak var EasyButton: UIButton!
+    
+    var deck: Deck?{
+        didSet{
+            getScheduler(deck!)
+        }
+    }
+    var scheduler: Deck?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        let htmlString:String! = "<br /><h2>Welcome to SourceFreeze!!!</h2>"
+        webView.loadHTMLString(htmlString, baseURL: nil)
         // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func getScheduler(deck: Deck){
+        
     }
     
 

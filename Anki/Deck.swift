@@ -100,19 +100,17 @@ class DeckUtil: NSObject {
             completion(nil, nil)
         }
     }
-    class func getDecks(gids: [String], withCompletion completion: ( [Deck]?, NSError?) -> Void){
+    class func getDecks(var gids: [String], withCompletion completion: ( [Deck]?, NSError?) -> Void){
         var callbacks = [PFQueryArrayResultBlock]()
         var decks = [Deck]()
         var numDone = 0
-        let numFinished = gids.count
         if (gids.isEmpty){
             return completion(decks, nil)
         }
         let finished = {() ->() in
-            if (numDone == numFinished){
+            numDone = numDone + 1
+            if (numDone >= gids.count){
                 completion(decks, nil)
-            }else{
-                numDone = numDone + 1
             }
         }
         for gid in gids {
@@ -120,7 +118,11 @@ class DeckUtil: NSObject {
             let callback = { (results: [PFObject]?, e: NSError?) -> () in
                 if(e != nil){
                     if let deck = results?[0]{
-                        decks.append(Deck(deck: deck))
+                        let d = Deck(deck: deck)
+                        if let cld = d.children{
+                            gids = gids + cld
+                        }
+                        decks.append(d)
                     }
                 }
                 finished()
