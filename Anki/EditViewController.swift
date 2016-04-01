@@ -16,8 +16,6 @@ class EditViewController: UIViewController {
     
     @IBOutlet weak var backText: UITextView!
     
-    
-
 //    @IBAction func onSubmit(sender: AnyObject) {
 //        if frontText != nil && backText != nil {
 //            currentCard.front = frontText.text;
