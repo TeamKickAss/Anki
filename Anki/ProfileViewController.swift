@@ -7,14 +7,22 @@
 //
 
 import UIKit
-
+import Parse
+let logoutNotification = "logoutNotification"
 class ProfileViewController: UIViewController {
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
+    @IBAction func Logout(sender: AnyObject) {
+        PFUser.logOut()
+        
+        NSNotificationCenter.defaultCenter().postNotificationName(logoutNotification, object: nil)
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
