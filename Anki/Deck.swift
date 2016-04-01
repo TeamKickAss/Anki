@@ -77,6 +77,18 @@ class Deck: NSObject{
         parseDeck = deck
     }
     
+    func getChildren()->[Deck]{
+        let query = PFQuery(className: "Deck")
+        query.whereKey("gid", containedIn: children!)
+        let results = try? query.findObjects()
+        var decks = [Deck]()
+        if let results = results{
+            for d in results{
+                decks.append(Deck(deck: d))
+            }
+        }
+        return decks
+    }
     func save(block: PFBooleanResultBlock?){
         parseDeck.saveInBackgroundWithBlock(block)
     }
