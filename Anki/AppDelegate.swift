@@ -13,7 +13,7 @@ import Parse
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    let storyboard = UIStoryboard(name: "Main", bundle: nil)
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
@@ -26,7 +26,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 configuration.server = "https://ankihubparse2.herokuapp.com/parse"
             })
         )
+        //LOG OUT
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "logout", name: logoutNotification, object: nil)
+        
+        if PFUser.currentUser() != nil{
+            print("Logged in")
+        }
         return true
+    }
+    
+    func logout() {
+        let vc = storyboard.instantiateInitialViewController()! as UIViewController
+        window?.rootViewController = vc
     }
 
     func applicationWillResignActive(application: UIApplication) {
