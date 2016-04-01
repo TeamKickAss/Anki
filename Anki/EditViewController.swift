@@ -10,7 +10,6 @@ import UIKit
 
 class EditViewController: UIViewController {
 
-
     //let currentCard: Card //TODO
 
     @IBOutlet weak var frontText: UITextView!
