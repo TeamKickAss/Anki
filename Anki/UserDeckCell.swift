@@ -11,6 +11,7 @@ import UIKit
 class UserDeckCell: UITableViewCell {
 
     @IBOutlet weak var deckName: UILabel!
+    @IBOutlet weak var numChildrenLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,4 +24,7 @@ class UserDeckCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    @IBAction func onClick(sender: AnyObject) {
+        
+    }
 }

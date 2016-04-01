@@ -8,19 +8,30 @@
 
 import UIKit
 import RATreeView
+import Parse
 
 class UserDecksViewController: UIViewController, RATreeViewDataSource, RATreeViewDelegate {
 
     @IBOutlet weak var deckTree: RATreeView!
     private var treeView: RATreeView!
     private let xibName = "UserDeckCell"
-    var data : [DeckNode] = []
+    var data : [Deck] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        data = UserDecksViewController.commonInit()
+        //data = UserDecksViewController.commonInit()
+        
+        DeckUtil.getAllDecks(20, withCompletion: {(decks: [Deck]?, error: NSError?) -> Void in
+            if let decks = decks {
+                self.data = decks
+                self.treeView.reloadData()
+            } else {
+                //handle error
+                print("error fetching data")
+            }
+        })
         
         treeView = RATreeView(frame: self.view.bounds)
         treeView.dataSource = self
@@ -41,8 +52,9 @@ class UserDecksViewController: UIViewController, RATreeViewDataSource, RATreeVie
     
     
     func treeView(treeView: RATreeView, numberOfChildrenOfItem item: AnyObject?) -> Int {
-        if let item = item as? DeckNode {
-            return item.children.count
+        if let item = item as? Deck {
+            let children = item.getChildren()
+            return children.count
         } else {
             return self.data.count
         }
@@ -50,16 +62,21 @@ class UserDecksViewController: UIViewController, RATreeViewDataSource, RATreeVie
     
     func treeView(treeView: RATreeView, cellForItem item: AnyObject?) -> UITableViewCell {
         let cell = treeView.dequeueReusableCellWithIdentifier(xibName) as! UserDeckCell
-        let item = item as! DeckNode
+        let item = item as! Deck
         let level = treeView.levelForCellForItem(item)
         let spaces = String(count: (2 * level), repeatedValue: (" " as! Character))
         cell.deckName.text = spaces + item.name
+        if item.children != nil {
+            cell.numChildrenLabel.text = spaces + "# of children: " + String(item.children!.count)
+        } else {
+            cell.numChildrenLabel.text = spaces + "# of children: " + "0"
+        }
         return cell
     }
     
     func treeView(treeView: RATreeView, child index: Int, ofItem item: AnyObject?) -> AnyObject {
-        if let item = item as? DeckNode {
-            return item.children[index]
+        if let item = item as? Deck {
+            return item.getChildren()[index] as AnyObject
         } else {
             return data[index] as AnyObject
         }

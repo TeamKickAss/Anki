@@ -78,6 +78,9 @@ class Deck: NSObject{
     }
     
     func getChildren()->[Deck]{
+        if children == nil {
+            return []
+        }
         let query = PFQuery(className: "Deck")
         query.whereKey("gid", containedIn: children!)
         let results = try? query.findObjects()
