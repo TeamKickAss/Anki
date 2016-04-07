@@ -163,40 +163,22 @@ class DeckUtil: NSObject {
     }
     
     class func getCardsForDeck(deck: Deck, withCompletion completion: ( [Card]?, NSError?) -> Void){
-        var callbacks = [PFQueryArrayResultBlock]()
-        var cards = [Card]()
-        let gids = deck.cids
-        if let gids = gids{
-            if gids.isEmpty{
-                return completion(cards, nil)
-            }
-        }else{
-            return completion(cards, nil)
-        }
         
-        var numDone = 0
-        let numFinished = gids!.count
-        let finished = {() ->() in
-            if (numDone == numFinished){
-                completion(cards, nil)
-            }else{
-                numDone = numDone + 1
-            }
-        }
-        for gid in gids! {
-            let query = PFQuery(className: "Card")
-            let callback = { (results: [PFObject]?, e: NSError?) -> () in
-                if(e != nil){
-                    if let card = results?[0]{
-                        cards.append(Card(card: card))
-                    }
+        let query = PFQuery(className: "Card")
+        query.whereKey("gid", containedIn: deck.cids!)
+        query.includeKey("CardType")
+        query.includeKey("CardType.FrontSide")
+        query.includeKey("CardType.BackSide")
+        query.includeKey("CardStyle")
+        query.findObjectsInBackgroundWithBlock { (objs, error) -> Void in
+            var cards = [Card]()
+            if let objs = objs{
+                for obj in objs{
+                    cards.append(Card(card: obj))
                 }
-                finished()
             }
-            callbacks.append(callback)
-            query.whereKey("gid", equalTo: gid)
-            query.findObjectsInBackgroundWithBlock(callback)
             
+            completion(cards, error)
         }
     }
     

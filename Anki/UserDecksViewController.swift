@@ -23,7 +23,7 @@ class UserDecksViewController: UIViewController, RATreeViewDataSource, RATreeVie
         // Do any additional setup after loading the view.
         //data = UserDecksViewController.commonInit()
         
-        DeckUtil.getAllDecks(20, withCompletion: {(decks: [Deck]?, error: NSError?) -> Void in
+        DeckUtil.getAllDecks(200, withCompletion: {(decks: [Deck]?, error: NSError?) -> Void in
             if let decks = decks {
                 self.data = decks
                 self.treeView.reloadData()
@@ -71,6 +71,8 @@ class UserDecksViewController: UIViewController, RATreeViewDataSource, RATreeVie
         } else {
             cell.numChildrenLabel.text = spaces + "# of children: " + "0"
         }
+        cell.deck = item
+        cell.vc = self
         return cell
     }
     
@@ -86,11 +88,23 @@ class UserDecksViewController: UIViewController, RATreeViewDataSource, RATreeVie
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
     */
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        print("in prepare to segue")
+        if let identifier = segue.identifier{
+            switch identifier{
+            case "Study":
+                let cell = sender as! UserDeckCell
+                let destination = segue.destinationViewController as! CardsViewController
+                destination.deck = cell.deck
+                break
+                
+            default:
+                break
+            }
+        }
+        
+    }
 
 }
 

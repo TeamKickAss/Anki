@@ -17,18 +17,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ANKI HUB" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dOP-Au-sAs">
-                                <rect key="frame" x="113" y="188" width="375" height="91"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ANKI HUB" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dOP-Au-sAs">
+                                <rect key="frame" x="115" y="255" width="370" height="90"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-BoldItalic" family="Helvetica Neue" pointSize="75"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qQH-Om-3uD">
-                                <rect key="frame" x="328" y="193" width="160" height="2"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qQH-Om-3uD">
+                                <rect key="frame" x="325" y="245" width="160" height="2"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="2" id="3kK-kY-tTe"/>
+                                    <constraint firstAttribute="width" constant="160" id="zzL-L5-cLD"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.16078431900000001" green="0.92549026010000002" blue="0.99215692280000001" alpha="1" colorSpace="deviceRGB"/>
+                        <constraints>
+                            <constraint firstItem="qQH-Om-3uD" firstAttribute="trailing" secondItem="dOP-Au-sAs" secondAttribute="trailing" id="6bo-qS-bAs"/>
+                            <constraint firstItem="dOP-Au-sAs" firstAttribute="top" secondItem="qQH-Om-3uD" secondAttribute="bottom" constant="8" id="Hvf-n4-Thj"/>
+                            <constraint firstItem="dOP-Au-sAs" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Mt5-vH-fKg"/>
+                            <constraint firstItem="dOP-Au-sAs" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="lhu-wD-JLN"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>

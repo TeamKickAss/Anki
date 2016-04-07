@@ -7,7 +7,7 @@ The following **required** functionality is completed:
 - [ ] User presses sync button to update their flash cards, and upload flashcards they made.
 - [ ] User sees a profile page with how well they are doing studying for each deck.
 - [ ] User can post issues to a card or deck to start a conversation. 
-- [ ] User can subscribe to decks.
+- [x] User can subscribe to decks.
 
 
 The following **optional** features are implemented:

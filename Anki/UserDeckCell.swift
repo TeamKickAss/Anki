@@ -13,6 +13,9 @@ class UserDeckCell: UITableViewCell {
     @IBOutlet weak var deckName: UILabel!
     @IBOutlet weak var numChildrenLabel: UILabel!
     
+    var vc: UIViewController?
+    var deck: Deck?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -25,6 +28,7 @@ class UserDeckCell: UITableViewCell {
     }
     
     @IBAction func onClick(sender: AnyObject) {
-        
+        print("Study button pressed")
+        vc?.performSegueWithIdentifier("Study", sender: self)
     }
 }

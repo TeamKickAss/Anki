@@ -40,7 +40,7 @@ class Scheduler: NSObject {
     var timeAgainGood = 600.0
     var timeAgainEasy = 86400.0
     
-    
+    var deck: Deck?
     var rootCard: CardNode? //List of cards that haven't been studied yet. Card is studied when it is marked easy.
     var lastCard: CardNode?
     var currentCard: CardNode?
@@ -57,12 +57,18 @@ class Scheduler: NSObject {
     init(deck: Deck, onStatusChange: (status: SchedulerStatus) -> Void){
         self.cardArr = [CardNode]()
         self.onStatusChange = onStatusChange
+        self.deck = deck;
         super.init()
-        DeckUtil.getCardsForDeck(deck, withCompletion: self.gotNewCards)
+        
         
     }
     
+    func loadCards(){
+        DeckUtil.getCardsForDeck(deck!, withCompletion: self.gotNewCards)
+    }
+    
     func gotNewCards(cards: [Card]?, error: NSError?){
+        print("Got new cards")
         if let cards = cards{
             if !cards.isEmpty{
                 cardArr = [CardNode]()
@@ -75,12 +81,20 @@ class Scheduler: NSObject {
                     }else{
                         cardArr.append(CardNode(card: cards[i], index: i, difficulty: .New, prev: cardArr[i-1] , next: nil))
                         cardArr[i-1].next = cardArr[i]
+                        print("Prev: \(cardArr[i-1].card.gid), Next:\(cardArr[i-1].next!.card.gid)")
                     }
                 }
                 lastCard = cardArr[i-1]
             }
         }
         status = .Ready
+    }
+    
+    func printList(){
+        print("Printing List")
+        for var cc = currentCard; cc != nil; cc = cc?.next{
+            print(cc?.card.gid)
+        }
     }
     
     func getNextCard() -> Card?{
@@ -90,43 +104,14 @@ class Scheduler: NSObject {
         if currentCard?.next == nil{
             status = .OutOfCards
         }else{
+            print("Getting Next Card \(currentCard!.next!.card.gid)")
             currentCard = currentCard?.next
         }
-        return card
+        return currentCard?.card
     }
     
     func setLastCard(difficulty: CardDifficulty){
         lastCard?.difficulty = difficulty
-        if(difficulty == .Easy){
-            //Remove Card
-            if let prev = lastCard?.prev{
-                prev.next = lastCard?.next
-            }
-            
-            if let next = lastCard?.next{
-                next.prev = lastCard?.prev
-            }
-            //Increase the numStudied
-            numStudied++
-            //Move it to the done list
-            if doneCard != nil {
-                doneCard?.prev = lastCard
-                lastCard?.next = doneCard
-                
-                doneCard = lastCard
-            }
-        //For now insert the card after the current card.
-        }else{
-            if let currentCard = currentCard{
-                var next = currentCard.next
-                if let next = next{
-                    next.prev = lastCard
-                }
-                currentCard.next = lastCard
-                lastCard?.prev = currentCard
-                lastCard?.next = next
-            }
-        }
     }
     
     func restart(){

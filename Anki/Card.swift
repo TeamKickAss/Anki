@@ -10,8 +10,49 @@ import UIKit
 import Parse
 
 //Immutable.
+
+class CardTemplate: NSObject{
+    var parseCardTemplate: PFObject
+    
+    init(cardTemplate: PFObject){
+        parseCardTemplate = cardTemplate
+    }
+    
+    var template: String{
+        get{
+            return parseCardTemplate.objectForKey("template") as! String
+        }
+        set(t){
+            parseCardTemplate.setValue(t, forKey: "template")
+        }
+    }
+}
+class CardType: NSObject {
+    var parseCardType: PFObject
+    var FrontTemplate: CardTemplate
+    var BackTemplate: CardTemplate
+    
+    init(cardType: PFObject){
+        parseCardType = cardType
+        FrontTemplate = CardTemplate(cardTemplate: cardType.objectForKey("FrontSide") as! PFObject)
+        BackTemplate = CardTemplate(cardTemplate: cardType.objectForKey("BackSide") as! PFObject)
+    }
+    
+    var FrontSide: String{
+        get{
+            return FrontTemplate.template
+        }
+    }
+    
+    var BackSide: String{
+        get{
+            return BackTemplate.template
+        }
+    }
+}
 class Card: NSObject {
     var parseCard: PFObject
+    var cardType: CardType
     
     var gid: String{
         get{
@@ -37,25 +78,16 @@ class Card: NSObject {
         }
     }
     
-    var front: String{
+    var notes: [[String]]{
         get{
-            return parseCard.objectForKey("front") as! String
-        }
-        set(text){
-            self.front = text;
+            return parseCard.objectForKey("notes") as! [[String]]
         }
     }
     
-    var back: String{
-        get{
-            return parseCard.objectForKey("back") as! String
-        }
-        set(text){
-            self.back = text;
-        }
-    }
     
     init(card: PFObject){
         parseCard = card
+        print(card.objectForKey("gid"))
+        cardType = CardType(cardType: card.objectForKey("CardType") as! PFObject)
     }
 }
