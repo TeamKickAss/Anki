@@ -100,6 +100,11 @@
             <objects>
                 <viewController id="9p8-TM-L32" customClass="UserDecksViewController" customModule="Anki" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" title="Decks" id="IvI-Se-cBK">
+                        <barButtonItem key="leftBarButtonItem" title="Browse" id="pr4-9D-WOc">
+                            <connections>
+                                <action selector="onBrowseClick:" destination="9p8-TM-L32" id="FbG-Q8-iHH"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Profile" id="w4D-vg-dcW">
                             <connections>
                                 <action selector="onProfileClick:" destination="9p8-TM-L32" id="BJd-IG-sjG"/>
@@ -108,7 +113,7 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <segue destination="zpy-xv-gUJ" kind="show" id="w0o-Wg-rmh"/>
+                        <segue destination="zpy-xv-gUJ" kind="show" identifier="Browse" id="w0o-Wg-rmh"/>
                         <segue destination="adu-6P-xRG" kind="show" identifier="Profile" id="cMj-ER-hes"/>
                         <segue destination="ho1-6B-fgm" kind="show" identifier="Study" id="XJJ-yR-IdN"/>
                     </connections>
@@ -617,6 +622,6 @@
         <image name="AnkiIcon" width="300" height="300"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="uPI-mr-RO8"/>
+        <segue reference="XJJ-yR-IdN"/>
     </inferredMetricsTieBreakers>
 </document>

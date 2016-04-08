@@ -80,9 +80,18 @@ class UserDecksViewController: UIViewController, RATreeViewDataSource, RATreeVie
             return data[index] as AnyObject
         }
     }
+    
+    func treeView(treeView: RATreeView, heightForRowForItem item: AnyObject) -> CGFloat {
+        let result = CGFloat(70.0)
+        return result
+    }
 
     @IBAction func onProfileClick(sender: AnyObject) {
         performSegueWithIdentifier("Profile", sender: self)
+    }
+    
+    @IBAction func onBrowseClick(sender: AnyObject) {
+        performSegueWithIdentifier("Browse", sender: self)
     }
     
     /*

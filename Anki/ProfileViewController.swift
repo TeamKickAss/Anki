@@ -92,6 +92,11 @@ class ProfileViewController: UIViewController, RATreeViewDataSource, RATreeViewD
             return data[index] as AnyObject
         }
     }
+    
+    func treeView(treeView: RATreeView, heightForRowForItem item: AnyObject) -> CGFloat {
+        let result = CGFloat(70.0)
+        return result
+    }
 
     /*
     // MARK: - Navigation
