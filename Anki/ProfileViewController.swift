@@ -17,7 +17,7 @@ class ProfileViewController: UIViewController, RATreeViewDataSource, RATreeViewD
     @IBOutlet weak var username: UILabel!
     
     private var treeView: RATreeView!
-    private let xibName = "UserDeckCell"
+    private let xibName = "ProfileDeckCell"
     var data : [Deck] = []
     
     override func viewDidLoad() {
@@ -70,7 +70,7 @@ class ProfileViewController: UIViewController, RATreeViewDataSource, RATreeViewD
     }
     
     func treeView(treeView: RATreeView, cellForItem item: AnyObject?) -> UITableViewCell {
-        let cell = treeView.dequeueReusableCellWithIdentifier(xibName) as! UserDeckCell
+        let cell = treeView.dequeueReusableCellWithIdentifier(xibName) as! ProfileDeckCell
         let item = item as! Deck
         let level = treeView.levelForCellForItem(item)
         let spaces = String(count: (2 * level), repeatedValue: (" " as! Character))

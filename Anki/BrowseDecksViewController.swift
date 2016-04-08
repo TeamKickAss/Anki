@@ -13,7 +13,7 @@ import Parse
 class BrowseDecksViewController: UIViewController, RATreeViewDataSource, RATreeViewDelegate {
 
     private var treeView: RATreeView!
-    private let xibName = "UserDeckCell"
+    private let xibName = "BrowseDeckCell"
     var data : [Deck] = []
 
     override func viewDidLoad() {
@@ -52,7 +52,7 @@ class BrowseDecksViewController: UIViewController, RATreeViewDataSource, RATreeV
     }
     
     func treeView(treeView: RATreeView, cellForItem item: AnyObject?) -> UITableViewCell {
-        let cell = treeView.dequeueReusableCellWithIdentifier(xibName) as! UserDeckCell
+        let cell = treeView.dequeueReusableCellWithIdentifier(xibName) as! BrowseDeckCell
         let item = item as! Deck
         let level = treeView.levelForCellForItem(item)
         let spaces = String(count: (2 * level), repeatedValue: (" " as! Character))
