@@ -114,6 +114,10 @@ Check anki-wireframe.png
 
 ###What technical features do you need help or resources for?
 
+###Walkthrough
+
+[Imgur](http://i.imgur.com/HUxUySN.gifv)
+
 ## License
 
 Copyright [2016] [David Ayeke]
