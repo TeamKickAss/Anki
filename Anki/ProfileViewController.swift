@@ -13,8 +13,7 @@ import RATreeView
 let logoutNotification = "logoutNotification"
 class ProfileViewController: UIViewController, RATreeViewDataSource, RATreeViewDelegate {
 
-    @IBOutlet weak var treeViewContainer: UIView!
-    @IBOutlet weak var username: UILabel!
+    @IBOutlet weak var navItem: UINavigationItem!
     
     private var treeView: RATreeView!
     private let xibName = "ProfileDeckCell"
@@ -24,7 +23,7 @@ class ProfileViewController: UIViewController, RATreeViewDataSource, RATreeViewD
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        username.text = PFUser.currentUser()?.username!
+        navItem.title = "\(PFUser.currentUser()!.username!)'s Decks"
         
         DeckUtil.getAllDecks(200, withCompletion: {(decks: [Deck]?, error: NSError?) -> Void in
             if let decks = decks {
@@ -42,8 +41,8 @@ class ProfileViewController: UIViewController, RATreeViewDataSource, RATreeViewD
         
         treeView.autoresizingMask = UIViewAutoresizing(rawValue:UIViewAutoresizing.FlexibleWidth.rawValue | UIViewAutoresizing.FlexibleHeight.rawValue)
         treeView.backgroundColor = UIColor.clearColor()
-        treeViewContainer.backgroundColor = UIColor.whiteColor()
-        treeViewContainer.addSubview(treeView)
+        view.backgroundColor = UIColor.whiteColor()
+        view.addSubview(treeView)
         treeView.reloadData()
         treeView.registerNib(UINib(nibName: xibName, bundle: nil), forCellReuseIdentifier: xibName)
     }
