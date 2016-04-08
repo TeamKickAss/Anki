@@ -111,6 +111,7 @@ class Card: NSObject {
             var replacedStringLengthDifference = 0
             for match in matches {
                 replaceWith = getNote((org as NSString).substringWithRange(match.rangeAtIndex(1)))
+                replacementLength = replaceWith.characters.count
                 let startIndex =  s.startIndex.advancedBy(match.range.location + replacedStringLengthDifference)
                 var endIndex = s.startIndex.advancedBy(match.range.length + match.range.location + replacedStringLengthDifference)
                 replacedStringLengthDifference -= (match.range.length - replacementLength)
@@ -146,6 +147,7 @@ class Card: NSObject {
         var replacedStringLengthDifference = 0
         for match in matches {
             replaceWith = getNote((org as NSString).substringWithRange(match.rangeAtIndex(1)))
+            replacementLength = replaceWith.characters.count
             let startIndex =  s.startIndex.advancedBy(match.range.location + replacedStringLengthDifference)
             var endIndex = s.startIndex.advancedBy(match.range.length + match.range.location + replacedStringLengthDifference)
             replacedStringLengthDifference -= (match.range.length - replacementLength)

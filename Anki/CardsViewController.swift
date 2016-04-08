@@ -75,7 +75,7 @@ class CardsViewController: UIViewController {
     }
     
     func renderBack(){
-        print("Render Back")
+        print("Render Back \(currentCard!.RenderBack())")
         if currentCard != nil{
             webView.loadHTMLString(currentCard!.RenderBack(), baseURL: nil)
         }
