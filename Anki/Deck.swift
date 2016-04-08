@@ -11,6 +11,7 @@ import Parse
 
 class Deck: NSObject{
     var parseDeck: PFObject
+    var cards: [Card]?
     var gid: String{
         set(value){
             parseDeck.setObject(value, forKey: "gid")
@@ -95,6 +96,35 @@ class Deck: NSObject{
     func save(block: PFBooleanResultBlock?){
         parseDeck.saveInBackgroundWithBlock(block)
     }
+    func sync(completion: PFBooleanResultBlock){
+        var toSync = [PFObject]()
+        var i = 0
+        //Check Children syncs
+        if let cards = cards{
+            for c in cards{
+                toSync = toSync + c.GetChanges(randomStringWithLength(30), index: i)
+                i = i+2
+            }
+        }
+        PFObject.saveAllInBackground(toSync, block: completion)
+    }
+    
+    
+}
+
+func randomStringWithLength (len : Int) -> NSString {
+    
+    let letters : NSString = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+    
+    var randomString : NSMutableString = NSMutableString(capacity: len)
+    
+    for (var i=0; i < len; i++){
+        var length = UInt32 (letters.length)
+        var rand = arc4random_uniform(length)
+        randomString.appendFormat("%C", letters.characterAtIndex(Int(rand)))
+    }
+    
+    return randomString
 }
 
 class DeckUtil: NSObject {
@@ -177,7 +207,7 @@ class DeckUtil: NSObject {
                     cards.append(Card(card: obj))
                 }
             }
-            
+            deck.cards = cards
             completion(cards, error)
         }
     }

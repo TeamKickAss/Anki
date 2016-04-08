@@ -34,6 +34,7 @@
 		68BB55B51C73CD5E0056C29C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68BB55B31C73CD5E0056C29C /* LaunchScreen.storyboard */; };
 		68BB55C01C73CD5E0056C29C /* AnkiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68BB55BF1C73CD5E0056C29C /* AnkiTests.swift */; };
 		68BB55CB1C73CD5E0056C29C /* AnkiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68BB55CA1C73CD5E0056C29C /* AnkiUITests.swift */; };
+		68E8ADDB1CB723CA00D19843 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E8ADDA1CB723CA00D19843 /* Transaction.swift */; };
 		E532612D1CADF13C0021C079 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E532612C1CADF13C0021C079 /* EditViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -90,6 +91,7 @@
 		68BB55C61C73CD5E0056C29C /* AnkiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AnkiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		68BB55CA1C73CD5E0056C29C /* AnkiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnkiUITests.swift; sourceTree = "<group>"; };
 		68BB55CC1C73CD5E0056C29C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		68E8ADDA1CB723CA00D19843 /* Transaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		E532612C1CADF13C0021C079 /* EditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -221,6 +223,7 @@
 				68AC3AD91CA22957008A9357 /* Deck.swift */,
 				68AC3ADB1CA23204008A9357 /* Scheduler.swift */,
 				683035E61CA37F5E007AE744 /* DeckNode.swift */,
+				68E8ADDA1CB723CA00D19843 /* Transaction.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -427,6 +430,7 @@
 				683035EA1CA4B46F007AE744 /* UserDeckCell.swift in Sources */,
 				684E02B81CA2307200011A3B /* ProfileViewController.swift in Sources */,
 				684E02B21CA22F9200011A3B /* BrowseDecksViewController.swift in Sources */,
+				68E8ADDB1CB723CA00D19843 /* Transaction.swift in Sources */,
 				684E02B01CA22F8400011A3B /* UserDecksViewController.swift in Sources */,
 				683035E71CA37F5E007AE744 /* DeckNode.swift in Sources */,
 				E532612D1CADF13C0021C079 /* EditViewController.swift in Sources */,

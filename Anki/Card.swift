@@ -13,6 +13,7 @@ import Parse
 
 class CardTemplate: NSObject{
     var parseCardTemplate: PFObject
+    var didChange = false
     
     init(cardTemplate: PFObject){
         parseCardTemplate = cardTemplate
@@ -24,6 +25,7 @@ class CardTemplate: NSObject{
         }
         set(t){
             parseCardTemplate.setValue(t, forKey: "template")
+            didChange = true
         }
     }
 }
@@ -53,7 +55,6 @@ class CardType: NSObject {
 class Card: NSObject {
     var parseCard: PFObject
     var cardType: CardType
-    
     var gid: String{
         get{
             return parseCard.objectForKey("gid") as! String
@@ -78,9 +79,9 @@ class Card: NSObject {
         }
     }
     
-    var notes: [[String]]{
+    var notes: NSDictionary{
         get{
-            return parseCard.objectForKey("notes") as! [[String]]
+            return parseCard.objectForKey("notes") as! NSDictionary
         }
     }
     
@@ -89,5 +90,36 @@ class Card: NSObject {
         parseCard = card
         print(card.objectForKey("gid"))
         cardType = CardType(cardType: card.objectForKey("CardType") as! PFObject)
+    }
+    
+    func GetChanges(indexGroup: NSString, index: Int)->[PFObject]{
+        var i = index
+        var toReturn = [PFObject]()
+        if cardType.BackTemplate.didChange{
+            let t1 = PFObject(className: "Transaction")
+            t1.setValue(gid, forKey: "on")
+            t1.setValue("Card", forKey: "for")
+            t1.setValue(PFUser.currentUser()?.username, forKey: "owner")
+            t1.setValue(indexGroup, forKey: "indexGroup")
+            t1.setValue(index, forKey: "index")
+            t1.setValue(["back":cardType.BackSide], forKey: "data")
+            t1.setValue("cBACK", forKey: "query")
+            i++
+            toReturn.append(t1)
+        }
+        
+        if cardType.BackTemplate.didChange{
+            let t2 = PFObject(className: "Transaction")
+            t2.setValue(gid, forKey: "on")
+            t2.setValue("Card", forKey: "for")
+            t2.setValue(PFUser.currentUser()?.username, forKey: "owner")
+            t2.setValue(indexGroup, forKey: "indexGroup")
+            t2.setValue(index, forKey: "index")
+            t2.setValue(["front":cardType.FrontSide], forKey: "data")
+            t2.setValue("cFRONT", forKey: "query")
+            toReturn.append(t2)
+        }
+        return toReturn
+        
     }
 }
