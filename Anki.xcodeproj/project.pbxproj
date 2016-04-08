@@ -11,13 +11,15 @@
 		683035E71CA37F5E007AE744 /* DeckNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 683035E61CA37F5E007AE744 /* DeckNode.swift */; };
 		683035EA1CA4B46F007AE744 /* UserDeckCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 683035E81CA4B46F007AE744 /* UserDeckCell.swift */; };
 		683035EB1CA4B46F007AE744 /* UserDeckCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 683035E91CA4B46F007AE744 /* UserDeckCell.xib */; };
+		683035EE1CB747E4007AE744 /* ProfileDeckCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 683035EC1CB747E4007AE744 /* ProfileDeckCell.swift */; };
+		683035EF1CB747E4007AE744 /* ProfileDeckCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 683035ED1CB747E4007AE744 /* ProfileDeckCell.xib */; };
+		683035F21CB747F9007AE744 /* BrowseDeckCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 683035F01CB747F9007AE744 /* BrowseDeckCell.swift */; };
+		683035F31CB747F9007AE744 /* BrowseDeckCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 683035F11CB747F9007AE744 /* BrowseDeckCell.xib */; };
 		684E02B01CA22F8400011A3B /* UserDecksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684E02AF1CA22F8400011A3B /* UserDecksViewController.swift */; };
 		684E02B21CA22F9200011A3B /* BrowseDecksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684E02B11CA22F9200011A3B /* BrowseDecksViewController.swift */; };
 		684E02B41CA22FA300011A3B /* CardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684E02B31CA22FA300011A3B /* CardsViewController.swift */; };
 		684E02B61CA22FEC00011A3B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684E02B51CA22FEC00011A3B /* LoginViewController.swift */; };
 		684E02B81CA2307200011A3B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684E02B71CA2307200011A3B /* ProfileViewController.swift */; };
-		684E02BD1CA2324600011A3B /* BrowseDeckCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684E02BC1CA2324600011A3B /* BrowseDeckCell.swift */; };
-		684E02BF1CA2325B00011A3B /* ProfileDeckCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684E02BE1CA2325B00011A3B /* ProfileDeckCell.swift */; };
 		68946E621CA20E420036392C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68946E611CA20E420036392C /* User.swift */; };
 		68946E661CA20EC50036392C /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68946E651CA20EC50036392C /* Card.swift */; };
 		68946E6E1CA212100036392C /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68946E691CA212100036392C /* AFNetworking.framework */; };
@@ -62,13 +64,15 @@
 		683035E61CA37F5E007AE744 /* DeckNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeckNode.swift; sourceTree = "<group>"; };
 		683035E81CA4B46F007AE744 /* UserDeckCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDeckCell.swift; sourceTree = "<group>"; };
 		683035E91CA4B46F007AE744 /* UserDeckCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserDeckCell.xib; sourceTree = "<group>"; };
+		683035EC1CB747E4007AE744 /* ProfileDeckCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileDeckCell.swift; sourceTree = "<group>"; };
+		683035ED1CB747E4007AE744 /* ProfileDeckCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileDeckCell.xib; sourceTree = "<group>"; };
+		683035F01CB747F9007AE744 /* BrowseDeckCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowseDeckCell.swift; sourceTree = "<group>"; };
+		683035F11CB747F9007AE744 /* BrowseDeckCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BrowseDeckCell.xib; sourceTree = "<group>"; };
 		684E02AF1CA22F8400011A3B /* UserDecksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDecksViewController.swift; sourceTree = "<group>"; };
 		684E02B11CA22F9200011A3B /* BrowseDecksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowseDecksViewController.swift; sourceTree = "<group>"; };
 		684E02B31CA22FA300011A3B /* CardsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardsViewController.swift; sourceTree = "<group>"; };
 		684E02B51CA22FEC00011A3B /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		684E02B71CA2307200011A3B /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		684E02BC1CA2324600011A3B /* BrowseDeckCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowseDeckCell.swift; sourceTree = "<group>"; };
-		684E02BE1CA2325B00011A3B /* ProfileDeckCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileDeckCell.swift; sourceTree = "<group>"; };
 		68946E611CA20E420036392C /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		68946E651CA20EC50036392C /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		68946E691CA212100036392C /* AFNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AFNetworking.framework; path = "Pods/../build/Debug-iphoneos/AFNetworking.framework"; sourceTree = "<group>"; };
@@ -151,10 +155,12 @@
 		684E02B91CA231D400011A3B /* TableCells */ = {
 			isa = PBXGroup;
 			children = (
-				684E02BC1CA2324600011A3B /* BrowseDeckCell.swift */,
-				684E02BE1CA2325B00011A3B /* ProfileDeckCell.swift */,
 				683035E81CA4B46F007AE744 /* UserDeckCell.swift */,
 				683035E91CA4B46F007AE744 /* UserDeckCell.xib */,
+				683035EC1CB747E4007AE744 /* ProfileDeckCell.swift */,
+				683035ED1CB747E4007AE744 /* ProfileDeckCell.xib */,
+				683035F01CB747F9007AE744 /* BrowseDeckCell.swift */,
+				683035F11CB747F9007AE744 /* BrowseDeckCell.xib */,
 			);
 			name = TableCells;
 			sourceTree = "<group>";
@@ -349,6 +355,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				68BB55B51C73CD5E0056C29C /* LaunchScreen.storyboard in Resources */,
+				683035EF1CB747E4007AE744 /* ProfileDeckCell.xib in Resources */,
+				683035F31CB747F9007AE744 /* BrowseDeckCell.xib in Resources */,
 				68BB55B21C73CD5E0056C29C /* Assets.xcassets in Resources */,
 				683035EB1CA4B46F007AE744 /* UserDeckCell.xib in Resources */,
 				68BB55B01C73CD5E0056C29C /* Main.storyboard in Resources */,
@@ -424,10 +432,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				684E02BD1CA2324600011A3B /* BrowseDeckCell.swift in Sources */,
 				684E02B61CA22FEC00011A3B /* LoginViewController.swift in Sources */,
 				684E02B41CA22FA300011A3B /* CardsViewController.swift in Sources */,
 				683035EA1CA4B46F007AE744 /* UserDeckCell.swift in Sources */,
+				683035EE1CB747E4007AE744 /* ProfileDeckCell.swift in Sources */,
 				684E02B81CA2307200011A3B /* ProfileViewController.swift in Sources */,
 				684E02B21CA22F9200011A3B /* BrowseDecksViewController.swift in Sources */,
 				68E8ADDB1CB723CA00D19843 /* Transaction.swift in Sources */,
@@ -438,8 +446,8 @@
 				68946E661CA20EC50036392C /* Card.swift in Sources */,
 				68AC3ADA1CA22957008A9357 /* Deck.swift in Sources */,
 				68AC3ADC1CA23204008A9357 /* Scheduler.swift in Sources */,
+				683035F21CB747F9007AE744 /* BrowseDeckCell.swift in Sources */,
 				68BB55AB1C73CD5E0056C29C /* AppDelegate.swift in Sources */,
-				684E02BF1CA2325B00011A3B /* ProfileDeckCell.swift in Sources */,
 				68946E621CA20E420036392C /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
