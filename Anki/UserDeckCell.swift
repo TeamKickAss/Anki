@@ -31,4 +31,9 @@ class UserDeckCell: UITableViewCell {
         print("Study button pressed")
         vc?.performSegueWithIdentifier("Study", sender: self)
     }
+    
+    @IBAction func onSync(sender: AnyObject) {
+        print("Sync button pressed")
+        
+    }
 }
