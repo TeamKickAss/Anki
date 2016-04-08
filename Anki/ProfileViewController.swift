@@ -25,7 +25,7 @@ class ProfileViewController: UIViewController, RATreeViewDataSource, RATreeViewD
         // Do any additional setup after loading the view.
         navItem.title = "\(PFUser.currentUser()!.username!)'s Decks"
         
-        DeckUtil.getAllDecks(200, withCompletion: {(decks: [Deck]?, error: NSError?) -> Void in
+        User.getMyDecks(withCompletion: {(decks: [Deck]?, error: NSError?) -> Void in
             if let decks = decks {
                 self.data = decks
                 self.treeView.reloadData()
