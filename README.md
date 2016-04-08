@@ -4,7 +4,7 @@
 
 The following **required** functionality is completed:
 
-- [ ] User presses sync button to update their flash cards, and upload flashcards they made.
+- [x] User presses sync button to update their flash cards, and upload flashcards they made.
 - [ ] User sees a profile page with how well they are doing studying for each deck.
 - [x] User can subscribe to decks.
 

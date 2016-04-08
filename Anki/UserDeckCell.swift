@@ -34,6 +34,19 @@ class UserDeckCell: UITableViewCell {
     
     @IBAction func onSync(sender: AnyObject) {
         print("Sync button pressed")
+        deck?.sync({ (success: Bool, error: NSError?) -> Void in
+            if success {
+                // create the alert
+                let alert = UIAlertController(title: "Sync Complete", message: "\(self.deckName.text!) has synced to server.", preferredStyle: UIAlertControllerStyle.Alert)
+
+                // add an action (button)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
         
+                // show the alert
+                self.vc?.presentViewController(alert, animated: true, completion: nil)
+            } else {
+                print("Error: \(error)")
+            }
+        })
     }
 }
