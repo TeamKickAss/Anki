@@ -34,12 +34,13 @@ class EditViewController: UIViewController {
             card?.cardType.BackTemplate.template = backText.text
            
         }
-        performSegueWithIdentifier("EditingToStudy", sender: self)
+        //performSegueWithIdentifier("EditingToStudy", sender: self)
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
-//    
    @IBAction func cancel(sender: AnyObject) {
-        performSegueWithIdentifier("EditingToStudy", sender: self)
+        //performSegueWithIdentifier("EditingToStudy", sender: self)
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
