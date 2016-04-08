@@ -33,6 +33,7 @@ class UserDeckCell: UITableViewCell {
     }
     
     @IBAction func onSync(sender: AnyObject) {
+        print("\(deck?.children)")
         print("Sync button pressed")
         deck?.sync({ (success: Bool, error: NSError?) -> Void in
             if success {

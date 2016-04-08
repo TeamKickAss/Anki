@@ -12,7 +12,6 @@ import Parse
 
 class UserDecksViewController: UIViewController, RATreeViewDataSource, RATreeViewDelegate {
 
-    @IBOutlet weak var deckTree: RATreeView!
     private var treeView: RATreeView!
     private let xibName = "UserDeckCell"
     var data : [Deck] = []
@@ -21,8 +20,6 @@ class UserDecksViewController: UIViewController, RATreeViewDataSource, RATreeVie
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        //data = UserDecksViewController.commonInit()
-        
         DeckUtil.getAllDecks(200, withCompletion: {(decks: [Deck]?, error: NSError?) -> Void in
             if let decks = decks {
                 self.data = decks
@@ -84,6 +81,10 @@ class UserDecksViewController: UIViewController, RATreeViewDataSource, RATreeVie
         }
     }
 
+    @IBAction func onProfileClick(sender: AnyObject) {
+        performSegueWithIdentifier("Profile", sender: self)
+    }
+    
     /*
     // MARK: - Navigation
 
@@ -99,44 +100,15 @@ class UserDecksViewController: UIViewController, RATreeViewDataSource, RATreeVie
                 destination.deck = cell.deck
                 break
                 
+            case "Profile":
+                print("going to profile")
+                break
+                
             default:
                 break
             }
         }
         
-    }
-
-}
-
-private extension UserDecksViewController {
-
-    static func commonInit() -> [DeckNode] {
-        let phone1 = DeckNode(name: "Phone 1")
-        let phone2 = DeckNode(name: "Phone 2")
-        let phone3 = DeckNode(name: "Phone 3")
-        let phone4 = DeckNode(name: "Phone 4")
-        let phones = DeckNode(name: "Phones", children: [phone1, phone2, phone3, phone4])
-
-        let notebook1 = DeckNode(name: "Notebook 1")
-        let notebook2 = DeckNode(name: "Notebook 2")
-
-        let computer1 = DeckNode(name: "Computer 1", children: [notebook1, notebook2])
-        let computer2 = DeckNode(name: "Computer 2")
-        let computer3 = DeckNode(name: "Computer 3")
-        let computers = DeckNode(name: "Computers", children: [computer1, computer2, computer3])
-
-        let cars = DeckNode(name: "Cars")
-        let bikes = DeckNode(name: "Bikes")
-        let houses = DeckNode(name: "Houses")
-        let flats = DeckNode(name: "Flats")
-        let motorbikes = DeckNode(name: "motorbikes")
-        let drinks = DeckNode(name: "Drinks")
-        let food = DeckNode(name: "Food")
-        let sweets = DeckNode(name: "Sweets")
-        let watches = DeckNode(name: "Watches")
-        let walls = DeckNode(name: "Walls")
-
-        return [phones, computers, cars, bikes, houses, flats, motorbikes, drinks, food, sweets, watches, walls]
     }
 
 }
