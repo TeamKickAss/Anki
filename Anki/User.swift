@@ -31,7 +31,9 @@ class User: NSObject {
             }
         }
     }
-    class func getMyDecks(withCompletion completion: ([Deck]?, NSError?) -> Void){
-        DeckUtil.getDecks(PFUser.currentUser()?.objectForKey("decks") as! [String], withCompletion: completion)
+    class func getMyDecks(withCompletion completion: (decks: [Deck]?, error: NSError?) -> Void){
+        let gids = PFUser.currentUser()?.objectForKey("decks") as? [String]
+        print(gids)
+        DeckUtil.getDecks(gids!, withCompletion: completion)
     }
 }
