@@ -24,9 +24,8 @@ class CardsViewController: UIViewController {
         super.viewDidLoad()
         let htmlString:String! = "<br /><h2>Loading Your Deck</h2>"
         webView.loadHTMLString(htmlString, baseURL: nil)
-        if scheduler == nil{
-            getScheduler(deck!)
-        }
+        getScheduler(deck!)
+        
         // Do any additional setup after loading the view.
     }
     
@@ -46,6 +45,7 @@ class CardsViewController: UIViewController {
         scheduler = Scheduler(deck: deck, onStatusChange: schedulerStatusChange)
         print("Got Scheduler")
         scheduler?.loadCards()
+        print("Loading Cards")
     }
     
     func schedulerStatusChange(status: SchedulerStatus){
@@ -67,9 +67,9 @@ class CardsViewController: UIViewController {
     }
     
     func renderFront(){
-        print("Render Front")
         if currentCard != nil{
-            webView.loadHTMLString(currentCard!.cardType.FrontSide, baseURL: nil)
+            print(currentCard!.RenderFront())
+            webView.loadHTMLString(currentCard!.RenderFront(), baseURL: nil)
         }
         showingFront = true
     }
@@ -77,7 +77,7 @@ class CardsViewController: UIViewController {
     func renderBack(){
         print("Render Back")
         if currentCard != nil{
-            webView.loadHTMLString(currentCard!.cardType.BackSide, baseURL: nil)
+            webView.loadHTMLString(currentCard!.RenderBack(), baseURL: nil)
         }
         showingFront = false
     }

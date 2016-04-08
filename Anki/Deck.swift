@@ -199,7 +199,7 @@ class DeckUtil: NSObject {
         query.includeKey("CardType")
         query.includeKey("CardType.FrontSide")
         query.includeKey("CardType.BackSide")
-        query.includeKey("CardStyle")
+        query.includeKey("style")
         query.findObjectsInBackgroundWithBlock { (objs, error) -> Void in
             var cards = [Card]()
             if let objs = objs{
