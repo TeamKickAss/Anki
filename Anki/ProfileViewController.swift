@@ -76,9 +76,11 @@ class ProfileViewController: UIViewController, RATreeViewDataSource, RATreeViewD
         let spaces = String(count: (2 * level), repeatedValue: (" " as! Character))
         cell.deckName.text = spaces + item.name
         if item.children != nil {
-            cell.numChildrenLabel.text = spaces + "# of children: " + String(item.children!.count)
+            cell.numCardsLabel.text = spaces + "# of cards: \(item.cids!.count)"
+            cell.numChildrenLabel.text = spaces + "# of children: \(item.children!.count)"
         } else {
-            cell.numChildrenLabel.text = spaces + "# of children: " + "0"
+            cell.numCardsLabel.text = spaces + "# of cards: 0"
+            cell.numChildrenLabel.text = spaces + "# of children: 0"
         }
         cell.deck = item
         cell.vc = self

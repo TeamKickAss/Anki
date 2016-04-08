@@ -11,6 +11,7 @@ import UIKit
 class UserDeckCell: UITableViewCell {
 
     @IBOutlet weak var deckName: UILabel!
+    @IBOutlet weak var numCardsLabel: UILabel!
     @IBOutlet weak var numChildrenLabel: UILabel!
     
     var vc: UIViewController?
