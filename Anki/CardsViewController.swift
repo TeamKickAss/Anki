@@ -8,13 +8,14 @@
 
 import UIKit
 
-class CardsViewController: UIViewController {
+class CardsViewController: UIViewController, UITabBarDelegate {
 
     @IBOutlet weak var webView: UIWebView!
     @IBOutlet weak var againButton: UIButton!
     @IBOutlet weak var hardButton: UIButton!
     @IBOutlet weak var GoodButton: UIButton!
     @IBOutlet weak var EasyButton: UIButton!
+    @IBOutlet weak var tabBar: UITabBar!
     
     var deck: Deck?
     var showingFront = false
@@ -104,6 +105,19 @@ class CardsViewController: UIViewController {
     }
     @IBAction func Easy(sender: AnyObject) {
         currentCard = scheduler?.getNextCard(.Easy)
+        renderFront()
+    }
+    
+    func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem) {
+        if (item.tag==0) {
+            currentCard = scheduler?.getNextCard(.Again)
+        } else if (item.tag==1) {
+            currentCard = scheduler?.getNextCard(.Hard)
+        } else if (item.tag==2) {
+            currentCard = scheduler?.getNextCard(.Good)
+        } else if (item.tag==3) {
+            currentCard = scheduler?.getNextCard(.Easy)
+        }
         renderFront()
     }
     
