@@ -41,6 +41,8 @@ class Scheduler: NSObject {
     var timeAgainGood = 600.0
     var timeAgainEasy = 86400.0
     
+    var difficultyCount = [Int](count: 5, repeatedValue: 0)
+    
     var deck: Deck?
     var rootCard: CardNode? //List of cards that haven't been studied yet. Card is studied when it is marked easy.
     var lastCard: CardNode?
@@ -86,20 +88,28 @@ class Scheduler: NSObject {
     
     func bubbleUp(){
         var pos = cardHeapPosition-1
-        while(pos>0 && cardHeap[pos/2]!.isLessThan(cardHeap[pos]!)){
+        
+
+        var a = cardHeap[pos/2]
+        var b = cardHeap[pos]
+        
+        while(pos>0 && a != nil && b != nil && cardHeap[pos/2]!.isLessThan(cardHeap[pos]!)){
             var y = cardHeap[pos]
-            cardHeap[pos] = cardHeap[pos/2]
-            cardHeap[pos/2] = y
+            b = cardHeap[pos/2]
+            a = y
         }
     }
     
     func extractMax() -> CardNode?{
-        let node = cardHeap[1]
-        cardHeap[1] = cardHeap[cardHeapPosition-1]
-        cardHeap[cardHeapPosition-1]=nil
-        cardHeapPosition--
-        sinkDown(1)
-        return node
+        if cardHeapPosition > 0 || cardHeapPosition < cardHeap.count{
+            let node = cardHeap[1]
+            cardHeap[1] = cardHeap[cardHeapPosition-1]
+            cardHeap[cardHeapPosition-1]=nil
+            cardHeapPosition--
+            sinkDown(1)
+            return node
+        }
+        return nil
     }
     
     func sinkDown(k: Int){
@@ -120,6 +130,9 @@ class Scheduler: NSObject {
         cardHeap[a] = cardHeap[b]
         cardHeap[b] = temp
     }
+    /***********
+    Card Functions
+    **********/
     func loadCards(){
         DeckUtil.getCardsForDeck(deck!, withCompletion: self.gotNewCards)
     }
@@ -131,6 +144,8 @@ class Scheduler: NSObject {
                 cardHeap = [CardNode?](count: cards.count+1, repeatedValue: nil)
                 cardHeapSize = cards.count+1
                 doneList = [CardNode?]()
+                difficultyCount = [Int](count: 5, repeatedValue: 0)
+                difficultyCount[CardDifficulty.New.rawValue] = cards.count
                 var i = 0
                 for ; i < cards.count; i = i+1{
                     insert(CardNode(card: cards[i], index:i, difficulty: .New))
@@ -162,6 +177,8 @@ class Scheduler: NSObject {
     
     func getNextCard(difficulty: CardDifficulty?) -> Card?{
         if lastCard != nil && difficulty != nil{
+            difficultyCount[(lastCard?.difficulty.rawValue)!]--
+            difficultyCount[difficulty!.rawValue]++
             numStudied = numStudied + 1
             lastCard?.difficulty = difficulty!
             //ADD IT TO THE NEW LIST
@@ -172,21 +189,24 @@ class Scheduler: NSObject {
             }
         }
         print("Hello")
-        lastCard = extractMax()
-        if lastCard == nil{
-            print("Returning Nothing")
+        if status != .OutOfCards{
+            lastCard = extractMax()
+            if lastCard == nil{
+                print("Returning Nothing")
+                status = .OutOfCards
+                return nil
+            }
+            lastCard?.status = .Viewed
+            return lastCard?.card
+        }else{
             status = .OutOfCards
-            return nil
+            return lastCard?.card
         }
-        lastCard?.status = .Viewed
-        return lastCard?.card
-        
-        
         
     }
     
-    func setLastCard(difficulty: CardDifficulty){
-        lastCard?.difficulty = difficulty
+    func getDifficultyCount(difficulty: CardDifficulty)->Int{
+        return difficultyCount[difficulty.rawValue]
     }
     
     // shuffle Maintains Following Properties

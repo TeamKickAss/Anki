@@ -22,6 +22,7 @@
 		684E02B81CA2307200011A3B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684E02B71CA2307200011A3B /* ProfileViewController.swift */; };
 		685724D81CC6E00D00DF0439 /* AnkiNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685724D71CC6E00D00DF0439 /* AnkiNavigationController.swift */; };
 		685724DA1CC6E0D100DF0439 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685724D91CC6E0D100DF0439 /* Colors.swift */; };
+		685724DC1CC6FBA100DF0439 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 685724DB1CC6FBA100DF0439 /* Storyboard.storyboard */; };
 		68946E621CA20E420036392C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68946E611CA20E420036392C /* User.swift */; };
 		68946E661CA20EC50036392C /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68946E651CA20EC50036392C /* Card.swift */; };
 		68946E6E1CA212100036392C /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68946E691CA212100036392C /* AFNetworking.framework */; };
@@ -77,6 +78,7 @@
 		684E02B71CA2307200011A3B /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		685724D71CC6E00D00DF0439 /* AnkiNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnkiNavigationController.swift; sourceTree = "<group>"; };
 		685724D91CC6E0D100DF0439 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		685724DB1CC6FBA100DF0439 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		68946E611CA20E420036392C /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		68946E651CA20EC50036392C /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		68946E691CA212100036392C /* AFNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AFNetworking.framework; path = "Pods/../build/Debug-iphoneos/AFNetworking.framework"; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 				68BB55B11C73CD5E0056C29C /* Assets.xcassets */,
 				68BB55B31C73CD5E0056C29C /* LaunchScreen.storyboard */,
 				68BB55B61C73CD5E0056C29C /* Info.plist */,
+				685724DB1CC6FBA100DF0439 /* Storyboard.storyboard */,
 			);
 			path = Anki;
 			sourceTree = "<group>";
@@ -365,6 +368,7 @@
 				683035F31CB747F9007AE744 /* BrowseDeckCell.xib in Resources */,
 				68BB55B21C73CD5E0056C29C /* Assets.xcassets in Resources */,
 				683035EB1CA4B46F007AE744 /* UserDeckCell.xib in Resources */,
+				685724DC1CC6FBA100DF0439 /* Storyboard.storyboard in Resources */,
 				68BB55B01C73CD5E0056C29C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
