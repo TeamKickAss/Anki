@@ -438,6 +438,16 @@
                                     <constraint firstItem="6Hg-qb-SLD" firstAttribute="leading" secondItem="6b2-O6-W61" secondAttribute="leading" id="rq4-AI-X2q"/>
                                 </constraints>
                             </view>
+                            <tabBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ESL-Sw-Fnd">
+                                <rect key="frame" x="0.0" y="618" width="375" height="49"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <items>
+                                    <tabBarItem title="Again" id="Enx-lX-WMf"/>
+                                    <tabBarItem tag="1" title="Hard" id="Lvk-Ho-9aP"/>
+                                    <tabBarItem tag="2" title="Good" id="5rB-2Q-Hzv"/>
+                                    <tabBarItem tag="3" title="Easy" id="l5d-mJ-VvI"/>
+                                </items>
+                            </tabBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -467,6 +477,7 @@
                         <outlet property="GoodButton" destination="LjB-1G-Jfp" id="tCr-Yk-fKd"/>
                         <outlet property="againButton" destination="EBr-T6-V5f" id="66Q-di-HkQ"/>
                         <outlet property="hardButton" destination="5sd-ne-vBC" id="A0v-OQ-gQV"/>
+                        <outlet property="tabBar" destination="ESL-Sw-Fnd" id="YIf-g9-6aX"/>
                         <outlet property="webView" destination="6Hg-qb-SLD" id="iJW-bz-Avx"/>
                     </connections>
                 </viewController>
