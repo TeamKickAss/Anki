@@ -31,6 +31,7 @@ class ProfileViewController: UIViewController, RATreeViewDataSource, RATreeViewD
                 self.treeView.reloadData()
             } else {
                 //handle error
+                
                 print("error fetching data \(error)")
             }
         })
