@@ -58,16 +58,8 @@ class BrowseDecksViewController: UIViewController, RATreeViewDataSource, RATreeV
         let spaces = String(count: (2 * level), repeatedValue: (" " as! Character))
         cell.deckName.text = spaces + item.name
         if item.children != nil {
-            do{
-                cell.numCardsLabel.text = try spaces + "\(item.cids!.count) cards"
-            }catch _{
-                cell.numCardsLabel.text = "No Cards"
-            }
-            do{
-                cell.numChildrenLabel.text = spaces + "\(item.children!.count) children"
-            }catch _{
-                cell.numCardsLabel.text = "No Children"
-            }
+            cell.numCardsLabel.text = spaces + "\(item.children!.count) cards"
+            cell.numChildrenLabel.text = spaces + "\(item.children!.count) children"
         } else {
             cell.numCardsLabel.text = spaces + "No Cards"
             cell.numChildrenLabel.text = spaces + "No Children"
