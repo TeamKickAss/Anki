@@ -52,7 +52,7 @@ class CardsViewController: UIViewController {
         print("In Scheduler Status Change \(status)")
         switch status{
         case SchedulerStatus.Ready:
-            currentCard = scheduler?.getNextCard()
+            currentCard = scheduler?.getNextCard(nil)
             renderFront()
             break
         case SchedulerStatus.Initializing:
@@ -60,6 +60,7 @@ class CardsViewController: UIViewController {
         case SchedulerStatus.Done:
             break
         case SchedulerStatus.OutOfCards:
+            alert("This is the last card in the deck!")
             break
         case SchedulerStatus.Error:
             break
@@ -90,24 +91,26 @@ class CardsViewController: UIViewController {
         }
     }
     @IBAction func Again(sender: AnyObject) {
-        scheduler?.setLastCard(.Again)
-        currentCard = scheduler?.getNextCard()
+        currentCard = scheduler?.getNextCard(.Again)
         renderFront()
     }
     @IBAction func Hard(sender: AnyObject) {
-        scheduler?.setLastCard(.Hard)
-        currentCard = scheduler?.getNextCard()
+        currentCard = scheduler?.getNextCard(.Hard)
         renderFront()
     }
     @IBAction func Good(sender: AnyObject) {
-        scheduler?.setLastCard(.Good)
-        currentCard = scheduler?.getNextCard()
+        currentCard = scheduler?.getNextCard(.Good)
         renderFront()
     }
     @IBAction func Easy(sender: AnyObject) {
-        scheduler?.setLastCard(.Easy)
-        currentCard = scheduler?.getNextCard()
+        currentCard = scheduler?.getNextCard(.Easy)
         renderFront()
+    }
+    
+    func alert(msg:String){
+        let alert = UIAlertController(title: "Alert", message: msg, preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.Default, handler: nil))
+        self.presentViewController(alert, animated: true, completion: nil)
     }
     
     /*
@@ -118,6 +121,7 @@ class CardsViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        scheduler?.save()
         if let destination = segue.destinationViewController as? EditViewController{
             print("Editing View Controller")
             destination.card = currentCard

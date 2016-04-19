@@ -581,7 +581,7 @@
         <!--NavigationController-->
         <scene sceneID="k8v-Hf-bxa">
             <objects>
-                <navigationController storyboardIdentifier="NavigationController" automaticallyAdjustsScrollViewInsets="NO" id="hrr-oy-CqJ" userLabel="NavigationController" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NavigationController" automaticallyAdjustsScrollViewInsets="NO" id="hrr-oy-CqJ" userLabel="NavigationController" customClass="AnkiNavigationController" customModule="Anki" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="p0F-pv-Gc4">

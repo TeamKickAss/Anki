@@ -173,7 +173,39 @@ class Card: NSObject {
             toReturn.append(t1)
         }
         
+        if cardType.FrontTemplate.didChange{
+            let t2 = PFObject(className: "Transaction")
+            t2.setValue(gid, forKey: "on")
+            t2.setValue("Card", forKey: "for")
+            t2.setValue(PFUser.currentUser()?.username, forKey: "owner")
+            t2.setValue(indexGroup, forKey: "indexGroup")
+            t2.setValue(i, forKey: "index")
+            t2.setValue(["front":cardType.FrontSide], forKey: "data")
+            t2.setValue("cFRONT", forKey: "query")
+            toReturn.append(t2)
+        }
+        return toReturn
+        
+    }
+    
+    func save(completion: PFBooleanResultBlock){
+        let indexGroup = randomStringWithLength(30)
+        var index = 0
+        var toReturn = [PFObject]()
         if cardType.BackTemplate.didChange{
+            let t1 = PFObject(className: "Transaction")
+            t1.setValue(gid, forKey: "on")
+            t1.setValue("Card", forKey: "for")
+            t1.setValue(PFUser.currentUser()?.username, forKey: "owner")
+            t1.setValue(indexGroup, forKey: "indexGroup")
+            t1.setValue(index, forKey: "index")
+            t1.setValue(["back":cardType.BackSide], forKey: "data")
+            t1.setValue("cBACK", forKey: "query")
+            index++
+            toReturn.append(t1)
+        }
+        
+        if cardType.FrontTemplate.didChange{
             let t2 = PFObject(className: "Transaction")
             t2.setValue(gid, forKey: "on")
             t2.setValue("Card", forKey: "for")
@@ -184,7 +216,17 @@ class Card: NSObject {
             t2.setValue("cFRONT", forKey: "query")
             toReturn.append(t2)
         }
-        return toReturn
-        
+        PFObject.saveAllInBackground(toReturn, block: completion)
+    }
+    
+    func GetNumChanges() -> Int{
+        var i = 0
+        if cardType.BackTemplate.didChange{
+            i++
+        }
+        if cardType.FrontTemplate.didChange{
+            i++
+        }
+        return i
     }
 }

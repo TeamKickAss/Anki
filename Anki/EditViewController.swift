@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 class EditViewController: UIViewController {
 
@@ -28,14 +29,17 @@ class EditViewController: UIViewController {
     }
     
     @IBAction func onSubmit(sender: AnyObject) {
-        if frontText != nil && backText != nil {
-            card?.cardType.FrontTemplate.template = frontText.text
-            print(card?.cardType.FrontSide)
-            card?.cardType.BackTemplate.template = backText.text
+        card?.cardType.FrontTemplate.template = frontText.text
+        card?.cardType.BackTemplate.template = backText.text
+        MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        card?.save({ (worked, err) -> Void in
+            MBProgressHUD.hideHUDForView(self.view, animated: true)
+            print("Was Able to Save Transactions: \(worked), \(err)")
+            self.dismissViewControllerAnimated(true, completion: nil)
+        })
            
-        }
         //performSegueWithIdentifier("EditingToStudy", sender: self)
-        dismissViewControllerAnimated(true, completion: nil)
+        
     }
     
    @IBAction func cancel(sender: AnyObject) {

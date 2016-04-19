@@ -9,12 +9,12 @@
 import UIKit
 import Parse
 
-enum CardDifficulty{
-    case Again
-    case Hard
-    case Good
-    case Easy
-    case New
+enum CardDifficulty: Int{
+    case New = 0
+    case Easy = 1
+    case Good = 2
+    case Hard = 3
+    case Again = 4
 }
 
 enum CardStatus{
@@ -30,6 +30,7 @@ enum SchedulerStatus{
     case Error
 }
 
+var pseudoRandomNum = 0
 class Scheduler: NSObject {
     
     //Scheduling Options
@@ -43,10 +44,13 @@ class Scheduler: NSObject {
     var deck: Deck?
     var rootCard: CardNode? //List of cards that haven't been studied yet. Card is studied when it is marked easy.
     var lastCard: CardNode?
-    var currentCard: CardNode?
-    var cardArr: [CardNode]
+    var cardHeapSize: Int
+    var cardHeap: [CardNode?]
+    var cardHeapPosition: Int
     
-    var doneCard: CardNode? //List of cards that you've done studying
+    var doneList: [CardNode?] //List of cards that you've done studying
+    
+    
     var status = SchedulerStatus.Initializing{
         didSet{
             onStatusChange(status: status)
@@ -55,14 +59,67 @@ class Scheduler: NSObject {
     var onStatusChange: (status: SchedulerStatus) -> Void
     
     init(deck: Deck, onStatusChange: (status: SchedulerStatus) -> Void){
-        self.cardArr = [CardNode]()
+        self.cardHeap = [CardNode]()
+        self.doneList = [CardNode]()
+        self.cardHeapSize = 0
+        self.cardHeapPosition = 0
         self.onStatusChange = onStatusChange
         self.deck = deck;
         super.init()
         
-        
     }
     
+    //***************************
+    //HEAP Functions
+    //***************************
+    
+    
+    func insert(cN: CardNode){
+        if(cardHeapPosition == 0){
+            cardHeap[cardHeapPosition+1] = cN
+            cardHeapPosition = 2;
+        }else{
+            cardHeap[cardHeapPosition++]=cN
+            bubbleUp();
+        }
+    }
+    
+    func bubbleUp(){
+        var pos = cardHeapPosition-1
+        while(pos>0 && cardHeap[pos/2]!.isLessThan(cardHeap[pos]!)){
+            var y = cardHeap[pos]
+            cardHeap[pos] = cardHeap[pos/2]
+            cardHeap[pos/2] = y
+        }
+    }
+    
+    func extractMax() -> CardNode?{
+        let node = cardHeap[1]
+        cardHeap[1] = cardHeap[cardHeapPosition-1]
+        cardHeap[cardHeapPosition-1]=nil
+        cardHeapPosition--
+        sinkDown(1)
+        return node
+    }
+    
+    func sinkDown(k: Int){
+        var smallest = k
+        if(2*k<cardHeapPosition && cardHeap[smallest]!.isLessThan(cardHeap[2*k]!)){
+            smallest = 2*k
+        }
+        if(2*k+1<cardHeapPosition && cardHeap[smallest]!.isLessThan(cardHeap[2*k+1]!)){
+            smallest = 2*k+1
+        }
+        if(smallest != k){
+            swap(k, b: smallest);
+            sinkDown(smallest)
+        }
+    }
+    func swap(a: Int, b:Int){
+        var temp = cardHeap[a]
+        cardHeap[a] = cardHeap[b]
+        cardHeap[b] = temp
+    }
     func loadCards(){
         DeckUtil.getCardsForDeck(deck!, withCompletion: self.gotNewCards)
     }
@@ -71,107 +128,80 @@ class Scheduler: NSObject {
         print("Got new cards")
         if let cards = cards{
             if !cards.isEmpty{
-                cardArr = [CardNode]()
+                cardHeap = [CardNode?](count: cards.count+1, repeatedValue: nil)
+                cardHeapSize = cards.count+1
+                doneList = [CardNode?]()
                 var i = 0
                 for ; i < cards.count; i = i+1{
-                    if i == 0 {
-                        cardArr.append(CardNode(card: cards[i], index: i, difficulty: .New, prev: nil, next: nil))
-                        rootCard = cardArr[i]
-                        currentCard = cardArr[i]
-                    }else{
-                        cardArr.append(CardNode(card: cards[i], index: i, difficulty: .New, prev: cardArr[i-1] , next: nil))
-                        cardArr[i-1].next = cardArr[i]
-                        print("Prev: \(cardArr[i-1].card.gid), Next:\(cardArr[i-1].next!.card.gid)")
-                    }
+                    insert(CardNode(card: cards[i], index:i, difficulty: .New))
                 }
-                lastCard = cardArr[i-1]
+                lastCard = cardHeap[i-1]
             }
         }
         status = .Ready
     }
     
-    func printList(){
-        print("Printing List")
-        for var cc = currentCard; cc != nil; cc = cc?.next{
-            print(cc?.card.gid)
+    func listLength(node: CardNode) -> Int{
+        var len = 0
+        for c in cardHeap{
+            if c != nil{
+                len++
+            }
         }
+        return len
+        
     }
     
-    func getNextCard() -> Card?{
-        let card = currentCard?.card
-        lastCard = currentCard
-        lastCard?.status = .Viewed
-        if currentCard?.next == nil{
-            status = .OutOfCards
-        }else{
-            print("Getting Next Card \(currentCard!.next!.card.gid)")
-            currentCard = currentCard?.next
+    func save(){
+        
+    }
+    
+    func load(){
+        
+    }
+    
+    func getNextCard(difficulty: CardDifficulty?) -> Card?{
+        if lastCard != nil && difficulty != nil{
+            numStudied = numStudied + 1
+            lastCard?.difficulty = difficulty!
+            //ADD IT TO THE NEW LIST
+            if difficulty == .Easy{
+                doneList.append(lastCard)
+            }else{
+                insert(lastCard!)
+            }
         }
-        return currentCard?.card
+        print("Hello")
+        lastCard = extractMax()
+        if lastCard == nil{
+            print("Returning Nothing")
+            status = .OutOfCards
+            return nil
+        }
+        lastCard?.status = .Viewed
+        return lastCard?.card
+        
+        
+        
     }
     
     func setLastCard(difficulty: CardDifficulty){
         lastCard?.difficulty = difficulty
     }
     
-    func restart(){
-        currentCard = cardArr[0]
-        lastCard = currentCard
-    }
-    
     // shuffle Maintains Following Properties
     // New Cards always at the end
     // Hard Cards usually before Good Cards
-    
-    func switchNodes(x: CardNode, y: CardNode){
-        let xNext = x.next
-        let xPrev = x.prev
-        
-        let yNext = y.next
-        let yPrev = y.prev
-        
-        x.next = yNext
-        x.prev = yPrev
-        
-        y.next = xNext
-        y.prev = yPrev
-        
-        xNext?.prev = y
-        xPrev?.next = y
-        
-        yNext?.prev = x
-        yPrev?.prev = x
-        
-    }
-    func shuffle(from: CardNode, to: CardNode){
-        //Random Shuffle
-        var currentIndex = cardArr.count
-        
-        while (0 != currentIndex){
-            let randomIndex = random() % currentIndex
-            currentIndex = currentIndex - 1
-            
-            switchNodes(cardArr[currentIndex], y: cardArr[randomIndex])
-            
-        }
-        rootCard = cardArr[0]
-        currentCard = cardArr[0]
-    }
-    
     
     class CardNode {
         let index: Int
         let card: Card
         var difficulty: CardDifficulty
-        var prev: CardNode?
-        var next: CardNode?
         var status: CardStatus
         var lastViewed: NSDate?
-        init(card: Card, index: Int, difficulty: CardDifficulty, prev: CardNode?, next: CardNode?){
+        init(card: Card, index: Int, difficulty: CardDifficulty){
             self.card = card
             self.difficulty = difficulty
-            self.prev = prev
-            self.next = next
             self.status = .Waiting
             self.index = index
         }
@@ -179,6 +209,31 @@ class Scheduler: NSObject {
         func equals(card: CardNode) -> Bool{
             return self.index == card.index
         }
+        
+        func isLessThan(card: CardNode) ->Bool{
+            if self.difficulty.rawValue == card.difficulty.rawValue{
+                return false
+            }
+            switch card.difficulty{
+            case .New:
+                return true
+            case .Easy:
+                return true
+            case .Good:
+                if pseudoRandomNum++ % 3 == 0{
+                    return false
+                }
+                return self.difficulty.rawValue < card.difficulty.rawValue
+            case .Hard:
+                if pseudoRandomNum++ % 2 == 0{
+                    return false
+                }
+                return self.difficulty.rawValue < card.difficulty.rawValue
+            case .Again:
+                return true
+            }
+        }
     }
 }
+
 

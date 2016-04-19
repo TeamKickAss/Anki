@@ -34,6 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let nc = storyboard.instantiateViewControllerWithIdentifier("NavigationController") as! UINavigationController
             window?.rootViewController = nc
         }
+        
         return true
     }
     

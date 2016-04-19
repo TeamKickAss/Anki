@@ -108,6 +108,15 @@ class Deck: NSObject{
         }
         PFObject.saveAllInBackground(toSync, block: completion)
     }
+    func getNumChanges() -> Int{
+        var i = 0
+        if let cards = cards{
+            for c in cards{
+                i = i + c.GetNumChanges()
+            }
+        }
+        return i
+    }
     
     
 }
@@ -169,7 +178,7 @@ class DeckUtil: NSObject {
                     decks.append(Deck(deck: d))
                 }
             }
-            print("Returning")
+            print("Returning")                                                                                                                      
             completion(decks, err)
         })
         

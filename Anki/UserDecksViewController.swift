@@ -64,11 +64,17 @@ class UserDecksViewController: UIViewController, RATreeViewDataSource, RATreeVie
         let spaces = String(count: (2 * level), repeatedValue: (" " as! Character))
         cell.deckName.text = spaces + item.name
         if item.children != nil {
-            cell.numCardsLabel.text = spaces + "# of cards: \(item.cids!.count)"
-            cell.numChildrenLabel.text = spaces + "# of children: \(item.children!.count)"
+            cell.numCardsLabel.text = spaces + "\(item.cids!.count) cards"
+            cell.numChildrenLabel.text = spaces + "\(item.children!.count) children"
         } else {
-            cell.numCardsLabel.text = spaces + "# of cards: 0"
-            cell.numChildrenLabel.text = spaces + "# of children: 0"
+            cell.numCardsLabel.text = spaces + "0 cards"
+            cell.numChildrenLabel.text = spaces + "0 children"
+        }
+        let numChanges:Int = item.getNumChanges()
+        if numChanges > 0{
+            cell.changesLabel.text = "\(numChanges) to sync"
+        }else{
+            cell.changesLabel.text = ""
         }
         cell.deck = item
         cell.vc = self

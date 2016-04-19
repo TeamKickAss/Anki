@@ -13,6 +13,7 @@ class UserDeckCell: UITableViewCell {
     @IBOutlet weak var deckName: UILabel!
     @IBOutlet weak var numCardsLabel: UILabel!
     @IBOutlet weak var numChildrenLabel: UILabel!
+    @IBOutlet weak var changesLabel: UILabel!
     
     var vc: UIViewController?
     var deck: Deck?
