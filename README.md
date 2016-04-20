@@ -5,7 +5,6 @@
 The following **required** functionality is completed:
 
 - [x] User presses sync button to update their flash cards, and upload flashcards they made.
-- [ ] User sees a profile page with how well they are doing studying for each deck.
 - [x] User can subscribe to decks.
 
 
@@ -116,7 +115,7 @@ Check anki-wireframe.png
 
 ###Walkthrough
 
-[Imgur](http://i.imgur.com/HUxUySN.gifv)
+https://www.youtube.com/watch?v=Jc1oCMTPPS4
 
 ## License
 

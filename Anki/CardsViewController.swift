@@ -67,12 +67,13 @@ class CardsViewController: UIViewController, UITabBarDelegate {
     }
     
     func renderFront(){
+        let c = currentCard
         if currentCard != nil{
             print(currentCard!.RenderFront())
             UIView.animateWithDuration(0.5, animations: { () -> Void in
                 self.webView.alpha = 0
             }, completion: {(finished: Bool) in
-                self.webView.loadHTMLString(self.currentCard!.RenderFront(), baseURL: nil)
+                self.webView.loadHTMLString(c!.RenderFront(), baseURL: nil)
                 UIView.animateWithDuration(0.5) {
                     self.webView.alpha = 1
                 }
@@ -83,11 +84,12 @@ class CardsViewController: UIViewController, UITabBarDelegate {
     
     func renderBack(){
         print("Render Back \(currentCard!.RenderBack())")
+        let c = currentCard
         if currentCard != nil{
             UIView.animateWithDuration(0.5, animations: { () -> Void in
                 self.webView.alpha = 0
             }, completion: {(finished: Bool) in
-                self.webView.loadHTMLString(self.currentCard!.RenderBack(), baseURL: nil)
+                self.webView.loadHTMLString(c!.RenderBack(), baseURL: nil)
                 UIView.animateWithDuration(0.5) {
                     self.webView.alpha = 1
                 }
