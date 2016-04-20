@@ -63,8 +63,8 @@ class UserDecksViewController: UIViewController, RATreeViewDataSource, RATreeVie
         let level = treeView.levelForCellForItem(item)
         let spaces = String(count: (2 * level), repeatedValue: (" " as! Character))
         cell.deckName.text = spaces + item.name
-        if item.children != nil {
-            cell.numCardsLabel.text = spaces + "\(item.children!.count) cards"
+        if item.children != nil && item.cids != nil {
+            cell.numCardsLabel.text = spaces + "\(item.cids!.count) cards"
             cell.numChildrenLabel.text = spaces + "\(item.children!.count) children"
         } else {
             cell.numCardsLabel.text = spaces + "0 cards"
