@@ -10,11 +10,8 @@ import UIKit
 
 class CardsViewController: UIViewController, UITabBarDelegate {
 
+    @IBOutlet weak var webViewContainer: UIView!
     @IBOutlet weak var webView: UIWebView!
-    @IBOutlet weak var againButton: UIButton!
-    @IBOutlet weak var hardButton: UIButton!
-    @IBOutlet weak var GoodButton: UIButton!
-    @IBOutlet weak var EasyButton: UIButton!
     @IBOutlet weak var tabBar: UITabBar!
     
     var deck: Deck?
@@ -26,6 +23,7 @@ class CardsViewController: UIViewController, UITabBarDelegate {
         let htmlString:String! = "<br /><h2>Loading Your Deck</h2>"
         webView.loadHTMLString(htmlString, baseURL: nil)
         getScheduler(deck!)
+        tabBar.delegate = self
         
         // Do any additional setup after loading the view.
     }
@@ -71,7 +69,14 @@ class CardsViewController: UIViewController, UITabBarDelegate {
     func renderFront(){
         if currentCard != nil{
             print(currentCard!.RenderFront())
-            webView.loadHTMLString(currentCard!.RenderFront(), baseURL: nil)
+            UIView.animateWithDuration(0.5, animations: { () -> Void in
+                self.webView.alpha = 0
+            }, completion: {(finished: Bool) in
+                self.webView.loadHTMLString(self.currentCard!.RenderFront(), baseURL: nil)
+                UIView.animateWithDuration(0.5) {
+                    self.webView.alpha = 1
+                }
+            })
         }
         showingFront = true
     }
@@ -79,7 +84,14 @@ class CardsViewController: UIViewController, UITabBarDelegate {
     func renderBack(){
         print("Render Back \(currentCard!.RenderBack())")
         if currentCard != nil{
-            webView.loadHTMLString(currentCard!.RenderBack(), baseURL: nil)
+            UIView.animateWithDuration(0.5, animations: { () -> Void in
+                self.webView.alpha = 0
+            }, completion: {(finished: Bool) in
+                self.webView.loadHTMLString(self.currentCard!.RenderBack(), baseURL: nil)
+                UIView.animateWithDuration(0.5) {
+                    self.webView.alpha = 1
+                }
+            })
         }
         showingFront = false
     }
@@ -91,34 +103,28 @@ class CardsViewController: UIViewController, UITabBarDelegate {
             renderFront()
         }
     }
-    @IBAction func Again(sender: AnyObject) {
-        currentCard = scheduler?.getNextCard(.Again)
-        renderFront()
-    }
-    @IBAction func Hard(sender: AnyObject) {
-        currentCard = scheduler?.getNextCard(.Hard)
-        renderFront()
-    }
-    @IBAction func Good(sender: AnyObject) {
-        currentCard = scheduler?.getNextCard(.Good)
-        renderFront()
-    }
-    @IBAction func Easy(sender: AnyObject) {
-        currentCard = scheduler?.getNextCard(.Easy)
-        renderFront()
-    }
     
     func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem) {
         if (item.tag==0) {
+            print("again")
             currentCard = scheduler?.getNextCard(.Again)
         } else if (item.tag==1) {
+            print("hard")
             currentCard = scheduler?.getNextCard(.Hard)
         } else if (item.tag==2) {
+            print("good")
             currentCard = scheduler?.getNextCard(.Good)
-        } else if (item.tag==3) {
+        } else {
+            print("easy")
             currentCard = scheduler?.getNextCard(.Easy)
         }
         renderFront()
+        
+        let delay = 0.25 * Double(NSEC_PER_SEC)
+        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+        dispatch_after(time, dispatch_get_main_queue()) {
+            tabBar.selectedItem = nil
+        }
     }
     
     func alert(msg:String){
