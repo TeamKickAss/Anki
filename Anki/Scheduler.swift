@@ -250,7 +250,7 @@ class Scheduler: NSObject {
                 }
                 return self.difficulty.rawValue < card.difficulty.rawValue
             case .Again:
-                return self.difficulty.rawValue < card.difficulty.rawValue
+                return false
             }
         }
     }
